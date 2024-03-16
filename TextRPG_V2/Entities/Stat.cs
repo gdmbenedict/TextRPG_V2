@@ -8,11 +8,15 @@ namespace TextRPG_V2
 {
     internal class Stat
     {
-        private int statNum;
-        private int minStat;
-        private int maxStat;
-        private bool capped; 
+        private int statNum; //the numerical value of the stat
+        private int minStat; //the minimum number the stat can reach
+        private int maxStat; //the maximum number the stat can reach
+        private bool capped; //bool tracking if the stat is capped
 
+        /// <summary>
+        /// Constructor for the Stat class taking only the stat number  
+        /// </summary>
+        /// <param name="statNum">the numerical value of the stat</param>
         public Stat(int statNum)
         {
             //setting secondary stat values
@@ -35,6 +39,11 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Overloaded constructor method for the Stat class, taking the stat number and the max stat
+        /// </summary>
+        /// <param name="statNum">the numerical value of the stat</param>
+        /// <param name="maxStat">the maximum number the stat can reach</param>
         public Stat(int statNum, int maxStat)
         {
             //setting secondary stat values
@@ -57,6 +66,12 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Overloaded constructor method for the Stat class, taking the stat number, the max stat, and the min stat
+        /// </summary>
+        /// <param name="statNum">the numerical value of the stat</param>
+        /// <param name="maxStat">the maximum number the stat can reach</param>
+        /// <param name="minStat">the minimum number the stat can reach</param>
         public Stat(int statNum, int maxStat, int minStat)
         {
             //setting secondary stat values
