@@ -89,6 +89,9 @@ namespace TextRPG_V2.Entities
             luc = null;
         }
 
+        /*
+         * abstract method for choosing action (movement, attack, item use, etc...) based on the child's AI
+         */
         public abstract string ChooseAction();
 
         //TODO: tiles and map before this can be finished
@@ -198,6 +201,60 @@ namespace TextRPG_V2.Entities
             return damage;
         }
 
+        //Accessor and Mutator Methods:
 
+        /*
+         * Mutator method that sets name of the Entity
+         * Input: (string) name: the name of the Entity
+         */
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
+        /*
+         * Accessor method that gets the name of an Entity
+         * Output: (string) name: the name of the Entity
+         */
+        public string GetName()
+        {
+            return name;
+        }
+
+        /*
+         * Mutator method that sets the graphical representation of the Entity
+         * Input: (char) symbol: the graphical representation of the Entity
+         */
+        public void SetSymbol(char symbol)
+        {
+            this.symbol = symbol;
+        }
+
+        /*
+         * Accessor method that returns the graphical representation of the Entity
+         * Output: (char) symbol: the graphical representation of the Entity
+         */
+        public char GetSymbol()
+        {
+            return symbol;
+        }
+
+        /*
+         * Mutator method that sets the color of the graphical representation of the Entity
+         * Input: (ConsoleColor) color: the color of the graphical representation of the Entity
+         */
+        public void SetColor(ConsoleColor color)
+        {
+            this.color = color;
+        }
+
+        /*
+         * Accessor method that returns the color of the graphical representation of the Entity
+         * Output: (ConsoleColor) color: the color of the graphical representation of the Entity
+         */
+        public ConsoleColor GetColor()
+        {
+            return color;
+        }
     }
 }
