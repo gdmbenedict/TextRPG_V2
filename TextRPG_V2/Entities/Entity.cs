@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPG_V2.Entities
+namespace TextRPG_V2
 {
     public enum Faction
     {
@@ -109,9 +109,9 @@ namespace TextRPG_V2.Entities
             int roll = rnd.Next(1,100);
 
             //get derived values
-            int crit = (int)(0.4 * luc.GetStat() + 0.1 * skl.GetStat());
-            int hit = 3 * skl.GetStat() + spd.GetStat() + luc.GetStat();
-            int avoid = 50 + 2 * target.spd.GetStat() + 2 * target.skl.GetStat() + target.luc.GetStat();
+            int crit = (int)(GlobalVariables.critLucWeight * luc.GetStat() + GlobalVariables.critSklWeight * skl.GetStat());
+            int hit = GlobalVariables.hitSklWeight * skl.GetStat() + GlobalVariables.hitSpdWeight * spd.GetStat() + GlobalVariables.hitLucWeight * luc.GetStat();
+            int avoid = GlobalVariables.baseDodge + GlobalVariables.dodgeSpdWeight * target.spd.GetStat() + GlobalVariables.dodgeSklWeight * target.skl.GetStat() + GlobalVariables.hitLucWeight * target.luc.GetStat();
 
             //check for critical hit
             if (roll >= 100 - crit)

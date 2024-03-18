@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextRPG_V2.Entities;
+using TextRPG_V2;
 
 namespace TextRPG_V2.Maps
 {
