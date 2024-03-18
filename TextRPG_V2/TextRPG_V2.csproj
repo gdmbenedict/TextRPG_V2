@@ -46,9 +46,14 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\HealthSystem.cs" />
     <Compile Include="Entities\SharedEnums.cs" />
+    <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Maps\Map.cs" />
+    <Compile Include="Maps\Tile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Stat.cs" />
+    <Compile Include="SharedEnums.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
