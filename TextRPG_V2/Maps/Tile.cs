@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TextRPG_V2;
 
-namespace TextRPG_V2.Maps
+namespace TextRPG_V2
 {
 
     internal class Tile
