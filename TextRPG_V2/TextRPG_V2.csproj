@@ -43,9 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Enemies\Mage.cs" />
+    <Compile Include="Entities\Enemies\Skeleton.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\HealthSystem.cs" />
     <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Maps\Map.cs" />
     <Compile Include="Maps\Tile.cs" />
     <Compile Include="SharedEnums.cs" />
     <Compile Include="Program.cs" />
@@ -56,10 +61,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\Enemies\" />
     <Folder Include="Entities\Player\" />
-    <Folder Include="Items\" />
-    <Folder Include="Managers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

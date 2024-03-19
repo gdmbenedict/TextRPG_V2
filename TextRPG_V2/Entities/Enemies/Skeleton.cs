@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TextRPG_V2.Entities.Enemies
+namespace TextRPG_V2
 {
     public class Skeleton : Entity
     {
