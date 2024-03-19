@@ -8,7 +8,9 @@ namespace TextRPG_V2
 {
     public enum Faction
     {
-
+        undead,
+        wizards,
+        warriors
     }
 
     public abstract class Entity
@@ -17,6 +19,7 @@ namespace TextRPG_V2
         private string name; //the name of the Entity
         private ConsoleColor color; //color of the Entity respresentation
         private char symbol; //the graphical representation of the Entity
+        private Faction faction;
         private bool magic;
 
         //Stats
@@ -38,7 +41,7 @@ namespace TextRPG_V2
          */
 
         //random number generation for Entity
-        private Random rnd = new Random();
+        public Random rnd;
 
         /// <summary>
         /// Constructor for an Entity
@@ -69,6 +72,8 @@ namespace TextRPG_V2
             this.spd = new Stat(spd);
             this.skl = new Stat(skl);
             this.luc = new Stat(luc);
+
+            rnd = new Random();
         }
 
         /// <summary>
@@ -87,17 +92,50 @@ namespace TextRPG_V2
             spd = null;
             skl = null;
             luc = null;
+
+            rnd = new Random();
         }
 
         /*
          * abstract method for choosing action (movement, attack, item use, etc...) based on the child's AI
          */
-        public abstract string ChooseAction();
+        public abstract string ChooseAction(Map map, int[] startPos);
 
         //TODO: tiles and map before this can be finished
-        public string Move()
+        public string Move(Map map, int[] startPos, int[] endPos)
         {
+            //check desired position if within bounds of map
+            if (endPos[0] < 0 || endPos[0] >= map.GetHeight() || endPos[1] < 0 || endPos[1] >= map.GetWidth())
+            {
+                return null; //fail to move
+            }
 
+            //checks if there is an Entity to attack
+            else if (map.GetEntity(endPos) != null)
+            {
+                return Attack(map.GetEntity(endPos)); //attacks entity
+            }
+
+            //check if Tile is impassable
+            else if (map.GetTile(endPos).GetImpassable())
+            {
+                return null; //fail to move
+            }
+
+            //moves
+            else
+            {
+                //deal damage to player standing on dangerous tile
+                if (map.GetTile(endPos).GetDangerous())
+                {
+                    map.GetTile(endPos).DealDamage(this);
+                }
+
+                map.AddEntity(map.GetEntity(startPos), endPos); //puts entity into new location
+                map.RemoveEntity(startPos); //removes entity from old location
+
+                return null;
+            }
         }
 
         public string Attack(Entity target)
@@ -255,6 +293,34 @@ namespace TextRPG_V2
         public ConsoleColor GetColor()
         {
             return color;
+        }
+
+        /// <summary>
+        /// Mutator method that sets the faction of the Entity to the specified faction
+        /// </summary>
+        /// <param name="faction">the desired faction of the Entity</param>
+        public void SetFaction(Faction faction)
+        {
+            this.faction = faction;
+        }
+
+        /// <summary>
+        /// Accessor Method that returns the faction of the Entity
+        /// </summary>
+        /// <returns></returns>
+        public Faction GetFaction()
+        {
+            return this.faction;
+        }
+
+        public void SetMagic(bool magic)
+        {
+            this.magic = magic;
+        }
+
+        public bool GetMagic()
+        {
+            return magic;
         }
     }
 }
