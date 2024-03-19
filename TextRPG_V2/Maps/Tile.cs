@@ -8,7 +8,7 @@ using TextRPG_V2;
 namespace TextRPG_V2
 {
 
-    internal class Tile
+    public class Tile
     {
 
         //variables

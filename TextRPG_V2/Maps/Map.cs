@@ -8,7 +8,7 @@ using System.IO;
 
 namespace TextRPG_V2
 {
-    internal class Map
+    public class Map
     {
         private string mapName;
         private Tile[,] background;

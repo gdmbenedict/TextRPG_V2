@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    internal class HealthSystem
+    public class HealthSystem
     {
         //Health variables
         private int maxHp; //the current maximum value for hp

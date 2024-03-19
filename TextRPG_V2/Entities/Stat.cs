@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    internal class Stat
+    public class Stat
     {
         private int statNum; //the numerical value of the stat
         private int minStat; //the minimum number the stat can reach

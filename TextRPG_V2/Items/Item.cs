@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    internal abstract class Item
+    public abstract class Item
     {
         private string name; //name of the item
 

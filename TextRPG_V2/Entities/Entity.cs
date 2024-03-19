@@ -11,7 +11,7 @@ namespace TextRPG_V2
 
     }
 
-    internal abstract class Entity
+    public abstract class Entity
     {
         //Entity variables
         private string name; //the name of the Entity
