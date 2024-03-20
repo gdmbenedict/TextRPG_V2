@@ -22,7 +22,7 @@ namespace TextRPG_V2.Items
 
             target.health.ModHp(healing);
 
-            message += " and healed " + target.health.GetHp() + " hp.";
+            message += " and healed " + (target.health.GetHp() - oldHp) + " hp.";
 
             return message;
         }

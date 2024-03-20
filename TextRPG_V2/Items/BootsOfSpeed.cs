@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    internal class BootsOfSpeed : Item
+    public class BootsOfSpeed : Item
     {
 
-        public BootsOfSpeed() : base()
+        public BootsOfSpeed() : base("Boots of Speed")
         {
 
         }

@@ -28,6 +28,7 @@ namespace TextRPG_V2
         //Items
 
         public const int potionHealingValue = 10;
+        public const int swordAtkIncrease = 5;
         public const int goldValue = 100;
     }
 }
