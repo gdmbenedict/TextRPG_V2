@@ -13,6 +13,7 @@ namespace TextRPG_V2.Items
         public Sword() : base("Sword") 
         {
             atkIncrease = GlobalVariables.swordAtkIncrease;
+            SetSymbol('s');
         }
 
         new public string Use(Entity target)

@@ -9,6 +9,8 @@ namespace TextRPG_V2
     public abstract class Item
     {
         private string name; //name of the item
+        private ConsoleColor color; //color of the Item respresentation
+        private char symbol; //the graphical representation of the Item
 
         /// <summary>
         /// Constructor method for an abstract item object
@@ -17,6 +19,8 @@ namespace TextRPG_V2
         public Item(string name)
         {
             this.name = name;
+            color = ConsoleColor.Yellow;
+            symbol = '?';
         }
 
         /// <summary>
@@ -25,6 +29,8 @@ namespace TextRPG_V2
         public Item()
         {
             name = null;
+            color = ConsoleColor.Yellow;
+            symbol = '?';
         }
 
         /// <summary>
@@ -56,6 +62,42 @@ namespace TextRPG_V2
         public void SetName(string name)
         {
             this.name = name;
+        }
+
+        /*
+         * Mutator method that sets the graphical representation of the Item
+         * Input: (char) symbol: the graphical representation of the Item
+         */
+        public void SetSymbol(char symbol)
+        {
+            this.symbol = symbol;
+        }
+
+        /*
+         * Accessor method that returns the graphical representation of the Item
+         * Output: (char) symbol: the graphical representation of the Item
+         */
+        public char GetSymbol()
+        {
+            return symbol;
+        }
+
+        /*
+         * Mutator method that sets the color of the graphical representation of the Item
+         * Input: (ConsoleColor) color: the color of the graphical representation of the Item
+         */
+        public void SetColor(ConsoleColor color)
+        {
+            this.color = color;
+        }
+
+        /*
+         * Accessor method that returns the color of the graphical representation of the Item
+         * Output: (ConsoleColor) color: the color of the graphical representation of the Item
+         */
+        public ConsoleColor GetColor()
+        {
+            return color;
         }
 
 

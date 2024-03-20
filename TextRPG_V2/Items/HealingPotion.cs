@@ -13,6 +13,7 @@ namespace TextRPG_V2.Items
         public HealingPotion() : base("healing potion")
         {
             healing = GlobalVariables.potionHealingValue;
+            SetSymbol('p');
         }
 
         new public string Use(Entity target)

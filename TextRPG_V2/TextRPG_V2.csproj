@@ -45,10 +45,14 @@
   <ItemGroup>
     <Compile Include="Entities\Enemies\Mage.cs" />
     <Compile Include="Entities\Enemies\Skeleton.cs" />
+    <Compile Include="Entities\Enemies\Warrior.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\HealthSystem.cs" />
     <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Items\BootsOfSpeed.cs" />
+    <Compile Include="Items\HealingPotion.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\Sword.cs" />
     <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Maps\Map.cs" />
     <Compile Include="Maps\Tile.cs" />

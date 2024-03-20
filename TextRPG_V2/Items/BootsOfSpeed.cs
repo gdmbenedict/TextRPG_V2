@@ -11,7 +11,7 @@ namespace TextRPG_V2
 
         public BootsOfSpeed() : base("Boots of Speed")
         {
-
+            SetSymbol('b');
         }
 
         new public string Use(Entity target)
