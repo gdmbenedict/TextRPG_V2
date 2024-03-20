@@ -28,7 +28,7 @@ namespace TextRPG_V2
         }
 
         /// <summary>
-        /// Abstract method for using an item
+        /// Method for using an item
         /// </summary>
         /// <param name="target">The entity that is using the item</param>
         /// <returns>A string for the event log</returns>

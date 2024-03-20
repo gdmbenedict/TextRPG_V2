@@ -77,6 +77,11 @@ namespace TextRPG_V2
         public void SetHp(int hp)
         {
             currentHp = hp;
+
+            if (currentHp > maxHp)
+            {
+                currentHp = maxHp;
+            }
         }
 
         /// <summary>
@@ -86,6 +91,11 @@ namespace TextRPG_V2
         public void ModHp(int modHp)
         {
             currentHp += modHp;
+
+            if (currentHp > maxHp)
+            {
+                currentHp = maxHp;
+            }
         }
 
         /// <summary>

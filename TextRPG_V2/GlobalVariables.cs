@@ -24,5 +24,10 @@ namespace TextRPG_V2
         //avoid
         public const float critLucWeight = 0.4f;
         public const float critSklWeight = 0.1f;
+
+        //Items
+
+        public const int potionHealingValue = 10;
+        public const int goldValue = 100;
     }
 }
