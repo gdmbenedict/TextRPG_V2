@@ -113,6 +113,11 @@ namespace TextRPG_V2
             }
         }
 
+        public void UpdateEntities()
+        {
+
+        }
+
        
     }
 }
