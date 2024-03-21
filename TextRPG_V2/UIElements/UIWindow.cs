@@ -74,5 +74,16 @@ namespace TextRPG_V2
                 contents[linePos, 1+i] = input[i];
             }
         }
+
+        public void ClearContents()
+        {
+            for(int j=1; j<height-2; j++)
+            {
+                for (int i=1; i<width-2; i++)
+                {
+                    contents[j, i] = ' ';
+                }
+            }
+        }
     }
 }

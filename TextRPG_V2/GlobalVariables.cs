@@ -56,5 +56,9 @@ namespace TextRPG_V2
 
         public const int controlsWindowHeight = 23;
         public const int controlsWindowWidth = 22;
+
+        public const int EventLogWindowHeight = 12;
+        public const int EventLogWindowWidth = 75;
+        public const int maxEventLogMessage = 10;
     }
 }
