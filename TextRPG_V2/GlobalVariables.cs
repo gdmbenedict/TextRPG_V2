@@ -45,7 +45,13 @@ namespace TextRPG_V2
 
 
         //Camera
-        public const int cameraHeight = 15;
+        public const int cameraHeight = 21;
         public const int cameraWidth = 31;
+
+
+
+        //UIWindows
+        public const int statWindowHeight = 11;
+        public const int statWindowWidth = 20;
     }
 }

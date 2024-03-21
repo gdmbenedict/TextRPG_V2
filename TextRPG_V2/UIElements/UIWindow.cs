@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    internal class UIWindow
+    public class UIWindow
     {
         private int width;
         private int height;
