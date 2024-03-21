@@ -46,6 +46,6 @@ namespace TextRPG_V2
 
         //Camera
         public const int cameraHeight = 15;
-        public const int CameraWidth = 31;
+        public const int cameraWidth = 31;
     }
 }
