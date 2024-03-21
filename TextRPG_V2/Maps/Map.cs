@@ -138,6 +138,21 @@ namespace TextRPG_V2
         {
             entities[pos[0], pos[1]] = null;
         }
+
+        public Item GetItem(int[] pos)
+        {
+            return items[pos[0], pos[1]];
+        }
+
+        public void AddItem(Item item, int[] pos)
+        {
+            items[pos[0], pos[1]] = item;
+        }
+
+        public void RemoveItem(int[] pos)
+        {
+            items[pos[0], pos[1]] = null;
+        }
     }
 }
 
