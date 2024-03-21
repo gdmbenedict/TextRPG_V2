@@ -27,7 +27,7 @@ namespace TextRPG_V2
 
         }
 
-        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager)
+        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             //declaring variables
             int[] endPos = { startPos[0], startPos[1] };
@@ -73,10 +73,10 @@ namespace TextRPG_V2
                     break;
             }
 
-            return Move(map, startPos, endPos, uiManager);
+            return Move(map, startPos, endPos, uiManager, itemManager);
         }
 
-        new public string Move(Map map, int[] startPos, int[] endPos, UIManager uIManager)
+        new public string Move(Map map, int[] startPos, int[] endPos, UIManager uIManager, ItemManager itemManager)
         {
             //check desired position if within bounds of map
             if (endPos[0] < 0 || endPos[0] >= map.GetHeight() || endPos[1] < 0 || endPos[1] >= map.GetWidth())
@@ -94,7 +94,10 @@ namespace TextRPG_V2
             //uses item if item is available
             else if (map.GetItem(endPos) != null)
             {
-                return map.GetItem(endPos).Use(this);
+                string message = map.GetItem(endPos).Use(this);
+                itemManager.RemoveItem(map.GetItem(endPos));
+                map.RemoveItem(endPos);
+                return message;
             }
 
             //check if Tile is impassableS

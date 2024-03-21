@@ -192,6 +192,21 @@ namespace TextRPG_V2
             entities[pos[0], pos[1]] = null;
         }
 
+        public void RemoveEntity(Entity entity)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int[] index = { y, x };
+                    if (entities[index[0], index[1]] == entity)
+                    {
+                        entities[index[0], index[1]] = null;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Accessor method that returns the index for a specific instance of an Entity
         /// </summary>

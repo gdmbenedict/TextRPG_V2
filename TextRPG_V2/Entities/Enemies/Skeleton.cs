@@ -24,7 +24,7 @@ namespace TextRPG_V2
             luc = new Stat(2);
         }
 
-        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager)
+        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             //check move right
             if (moveRight)
@@ -38,12 +38,12 @@ namespace TextRPG_V2
                     int[] leftPos = { startPos[0], startPos[1] - 1 };
 
                     //attempt move left
-                    return Move(map, startPos, leftPos, uiManager);
+                    return Move(map, startPos, leftPos, uiManager, itemManager);
                 }
                 else
                 {
                     //attempt move right
-                    return Move(map, startPos, rightPos, uiManager);
+                    return Move(map, startPos, rightPos, uiManager, itemManager);
                 }
             }
             //check move left
@@ -58,12 +58,12 @@ namespace TextRPG_V2
                     int[] rightPos = { startPos[0], startPos[1] + 1 };
 
                     //attempt move right
-                    return Move(map, startPos, rightPos, uiManager);
+                    return Move(map, startPos, rightPos, uiManager, itemManager);
                 }
                 else
                 {
                     //attempt move left
-                    return Move(map, startPos, leftPos, uiManager);
+                    return Move(map, startPos, leftPos, uiManager, itemManager);
                 }
             }
         }

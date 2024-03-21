@@ -18,13 +18,13 @@ namespace TextRPG_V2
             turnBuildup = 0;
         }
 
-        private string UpdateCell(Map map)
+        public string UpdateCell(Map map, UIManager uIManager, ItemManager itemManager)
         {
             turnBuildup += entity.spd.GetStat();
 
             if (turnBuildup >= GlobalVariables.actionThreshold)
             {
-                return TakeAction(map);
+                return TakeAction(map, uIManager, itemManager);
             }
             else
             {
@@ -32,10 +32,10 @@ namespace TextRPG_V2
             }
         }
 
-        private string TakeAction(Map map)
+        private string TakeAction(Map map, UIManager uIManager, ItemManager itemManager)
         {
             turnBuildup -= GlobalVariables.actionThreshold;
-            return entity.ChooseAction(map, map.GetEntityIndex(entity));
+            return entity.ChooseAction(map, map.GetEntityIndex(entity), uIManager, itemManager);
         }
 
         //method used for potentially sorting list by speed
@@ -59,16 +59,10 @@ namespace TextRPG_V2
     public class EntityManager
     {
         private List<TurnCell> turnCells;
-        private Map map;
         
         public EntityManager()
         {
             turnCells = new List<TurnCell>();
-        }
-
-        public void SetMap(Map map)
-        {
-            this.map = map;
         }
 
         public void AddEntity(Entity entity)
@@ -113,9 +107,13 @@ namespace TextRPG_V2
             }
         }
 
-        public void UpdateEntities()
+        public void UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager)
         {
-            
+            foreach (TurnCell turnCell in turnCells)
+            {
+                CheckDeadEntities(map, uIManager);
+                uIManager.AddEventToLog(turnCell.UpdateCell(map, uIManager, itemManager));
+            }
         }
 
         public Entity GetPlayer()
@@ -129,6 +127,19 @@ namespace TextRPG_V2
             }
 
             return null;
+        }
+
+        public void CheckDeadEntities(Map map, UIManager uIManager)
+        {
+            foreach (TurnCell turnCell in turnCells)
+            {
+                if (turnCell.entity.health.GetHp() <= 0)
+                {
+                    uIManager.AddEventToLog(turnCell.entity.GetName() + " died.");
+                    map.RemoveEntity(turnCell.entity);
+                    turnCells.Remove(turnCell);
+                }
+            }
         }
        
     }
