@@ -73,6 +73,11 @@ namespace TextRPG_V2
 
         public void AddEntity(Entity entity)
         {
+            if (entity.Equals(null))
+            {
+                return;
+            }
+
             turnCells.Add(new TurnCell(entity));
         }
 
@@ -107,5 +112,7 @@ namespace TextRPG_V2
                     return null;
             }
         }
+
+       
     }
 }

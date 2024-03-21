@@ -57,9 +57,8 @@ namespace TextRPG_V2
             height = endIndex - startIndex + 1; //gets height of map
             width = input[startIndex].Length; //gets width of map
 
-            //initializing Tile map, Item map, & Entity map
+            //initializing Tile map
             background = new Tile[height, width];
-            entities = new Entity[height, width];
             items = new Item[height, width];
 
             //cycle through every char of the input map
@@ -73,7 +72,35 @@ namespace TextRPG_V2
 
             }
 
-            //read in items and enemies
+            //read in items and entities
+
+            //find start and end indexes for entities
+            for (int i = endIndex + 1; i < input.Length; i++)
+            {
+                if (input[i] == "{")
+                {
+                    startIndex = i + 1; //sets start of map below open bracket
+                }
+
+                if (input[i] == "}")
+                {
+                    endIndex = i - 1; //sets end of map above closed bracket
+                    break;
+                }
+            }
+
+            //initializing entity map
+            entities = new Entity[height, width];
+
+            //reading in and adding in entities
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    entities[y, x] = entityManager.InitializeEntity(input[y + startIndex][x]);
+                    entityManager.AddEntity(entities[y, x]);
+                }
+            }
         }
 
         /*
