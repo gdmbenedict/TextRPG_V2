@@ -10,6 +10,9 @@ namespace TextRPG_V2
     {
         //Entity Variables
 
+        //Actions / Turns
+        public const int actionThreshold = 100;
+
         //dodge
         public const int baseDodge = 50;
         public const int dodgeSpdWeight = 2;
@@ -26,7 +29,6 @@ namespace TextRPG_V2
         public const float critSklWeight = 0.1f;
 
         //Items
-
         public const int potionHealingValue = 10;
         public const int swordAtkIncrease = 5;
         public const int goldValue = 100;
