@@ -17,7 +17,7 @@ namespace TextRPG_V2
         private int height;
         private int width;
 
-        public Map(string path, EntityManager entityManager)
+        public Map(string path, EntityManager entityManager, ItemManager itemManager)
         {
             //declaring some variables (default values added to handle no value error)
             int startIndex = 0, endIndex = 0;
@@ -72,8 +72,6 @@ namespace TextRPG_V2
 
             }
 
-            //read in items and entities
-
             //find start and end indexes for entities
             for (int i = endIndex + 1; i < input.Length; i++)
             {
@@ -99,6 +97,34 @@ namespace TextRPG_V2
                 {
                     entities[y, x] = entityManager.InitializeEntity(input[y + startIndex][x]);
                     entityManager.AddEntity(entities[y, x]);
+                }
+            }
+
+            //find start and end indexes for items
+            for (int i = endIndex + 1; i < input.Length; i++)
+            {
+                if (input[i] == "{")
+                {
+                    startIndex = i + 1; //sets start of map below open bracket
+                }
+
+                if (input[i] == "}")
+                {
+                    endIndex = i - 1; //sets end of map above closed bracket
+                    break;
+                }
+            }
+
+            //initializing item map
+            items = new Item[height, width];
+
+            //reading in and adding to item manager
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    items[y, x] = itemManager.InitializeItem(input[y + startIndex][x]);
+                    itemManager.AddItem(items[y, x]);
                 }
             }
         }

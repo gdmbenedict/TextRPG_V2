@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,17 @@ namespace TextRPG_V2
         public const float critLucWeight = 0.4f;
         public const float critSklWeight = 0.1f;
 
+
+
         //Items
         public const int potionHealingValue = 10;
         public const int swordAtkIncrease = 5;
         public const int goldValue = 100;
+
+
+
+        //Map Variables
+        private const string filename = "Dungeon.txt";
+        public const string directory = @"Maps\MapFiles\";
     }
 }

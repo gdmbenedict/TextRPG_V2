@@ -48,24 +48,30 @@
     <Compile Include="Entities\Enemies\Warrior.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\HealthSystem.cs" />
+    <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Items\BootsOfSpeed.cs" />
     <Compile Include="Items\HealingPotion.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\Sword.cs" />
     <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Managers\ItemManager.cs" />
     <Compile Include="Maps\Map.cs" />
     <Compile Include="Maps\Tile.cs" />
     <Compile Include="SharedEnums.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Stat.cs" />
+    <Compile Include="UIElements\Camera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Entities\Player\" />
+    <Content Include="Maps\MapFiles\Dungeon.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

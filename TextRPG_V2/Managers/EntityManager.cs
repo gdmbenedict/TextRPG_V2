@@ -102,7 +102,7 @@ namespace TextRPG_V2
                 case 'm':
                     return new Mage();
 
-                case 'w':
+                case 'f':
                     return new Warrior();
 
                 case 's':
@@ -115,9 +115,8 @@ namespace TextRPG_V2
 
         public void UpdateEntities()
         {
-
+            
         }
-
        
     }
 }
