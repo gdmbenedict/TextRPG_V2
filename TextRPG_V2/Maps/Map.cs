@@ -228,6 +228,38 @@ namespace TextRPG_V2
         {
             items[pos[0], pos[1]] = null;
         }
+
+        public ConsoleColor GetTopColor(int[] pos)
+        {
+            if (entities[pos[0], pos[1]] != null)
+            {
+                return entities[pos[0], pos[1]].GetColor();
+            }
+            else if (items[pos[0], pos[1]] != null)
+            {
+                return items[pos[0], pos[1]].GetColor();
+            }
+            else
+            {
+                return background[pos[0], pos[1]].GetColor();
+            }
+        }
+
+        public char GetTopSymbol(int[] pos)
+        {
+            if (entities[pos[0], pos[1]] != null)
+            {
+                return entities[pos[0], pos[1]].GetSymbol();
+            }
+            else if (items[pos[0], pos[1]] != null)
+            {
+                return items[pos[0], pos[1]].GetSymbol();
+            }
+            else
+            {
+                return background[pos[0], pos[1]].GetSymbol();
+            }
+        }
     }
 }
 

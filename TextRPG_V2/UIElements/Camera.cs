@@ -9,9 +9,74 @@ namespace TextRPG_V2
     public class Camera
     {
         Entity target;
+        private int displayHeight = GlobalVariables.cameraHeight + 2;
+        private int displayWidth = GlobalVariables.cameraWidth + 2;
 
-        public Camera()
+        public Camera(EntityManager entityManager)
         {
+            target = entityManager.GetPlayer();
+        }
+
+        public void DrawGamePlay(Map map, int startPosCol, int startPosRow)
+        {
+            int[] targetIndex = map.GetEntityIndex(target);
+            int j, i;
+
+            //draw top border
+            Console.SetCursorPosition(startPosCol, startPosRow);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("┌");
+            for (i =0; i<GlobalVariables.cameraWidth; i++)
+            {
+                Console.Write('─');
+            }
+            Console.Write('┐');
+
+            j = 0;
+            for (int y = -(GlobalVariables.cameraHeight/2); y <= (GlobalVariables.cameraHeight/2); y++)
+            {
+                j++;
+
+                //print border
+                Console.SetCursorPosition(startPosCol, startPosRow + j);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write('│');
+
+                //print map
+                for (int x = -(GlobalVariables.cameraWidth/2); x <= (GlobalVariables.cameraWidth/2); x++)
+                {
+                    //get index
+                    int yPos = y + targetIndex[0];
+                    int xPos = x + targetIndex[1];
+                    int[] index = {yPos, xPos};
+
+                    //check if in boundaries of map
+                    if ((yPos >= 0 && yPos <= map.GetHeight()) && (xPos >= 0 && xPos <= map.GetWidth()))
+                    {
+                        Console.ForegroundColor = map.GetTopColor(index);
+                        Console.Write(map.GetTopSymbol(index));
+                    }
+                    //not in boundaries, print space
+                    else
+                    {
+                        Console.Write (' ');
+                    }
+                }
+
+                //print border
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write('│');
+            }
+
+            //draw bottom border
+            Console.SetCursorPosition(startPosCol, startPosRow + j + 1);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write('└');
+            for (i = 0; i < GlobalVariables.cameraWidth; i++)
+            {
+                Console.Write('─');
+            }
+            Console.Write('┘');
 
         }
     }

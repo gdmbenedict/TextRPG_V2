@@ -117,6 +117,19 @@ namespace TextRPG_V2
         {
             
         }
+
+        public Entity GetPlayer()
+        {
+            foreach(TurnCell turnCell in turnCells)
+            {
+                if (turnCell.entity.GetName() == "Player")
+                {
+                    return turnCell.entity;
+                }
+            }
+
+            return null;
+        }
        
     }
 }

@@ -39,7 +39,13 @@ namespace TextRPG_V2
 
 
         //Map Variables
-        private const string filename = "Dungeon.txt";
+        public const string filename = "Dungeon.txt";
         public const string directory = @"Maps\MapFiles\";
+
+
+
+        //Camera
+        public const int cameraHeight = 15;
+        public const int CameraWidth = 31;
     }
 }
