@@ -28,7 +28,7 @@ namespace TextRPG_V2
             luc = new Stat(5);
         }
 
-        public override string ChooseAction(Map map, int[] startPos)
+        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager)
         {
             //checking range for target
             for (int y = -range; y<= range; y++)
@@ -45,7 +45,7 @@ namespace TextRPG_V2
                             int[] index = new int[] { startPos[0] + y, startPos[1] + x };
                             if (map.GetEntity(index) != null && map.GetEntity(index).GetFaction() != GetFaction())
                             {
-                                return Move(map, startPos, index);
+                                return Move(map, startPos, index, uiManager);
                             }
                         }
                     }
@@ -90,7 +90,7 @@ namespace TextRPG_V2
             }
 
             //move
-            return Move(map, startPos, endPos);
+            return Move(map, startPos, endPos, uiManager);
         }
     }
 }

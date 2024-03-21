@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPG_V2.Managers
+namespace TextRPG_V2
 {
-    internal class UIManager
+    public class UIManager
     {
         private Camera gameplayWindow;
         private StatWindow playerStatWindow;

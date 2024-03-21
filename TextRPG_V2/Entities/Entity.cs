@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextRPG_V2;
 
 namespace TextRPG_V2
 {
@@ -99,10 +100,10 @@ namespace TextRPG_V2
         /*
          * abstract method for choosing action (movement, attack, item use, etc...) based on the child's AI
          */
-        public abstract string ChooseAction(Map map, int[] startPos);
+        public abstract string ChooseAction(Map map, int[] startPos, UIManager uiManager);
 
         //TODO: tiles and map before this can be finished
-        public string Move(Map map, int[] startPos, int[] endPos)
+        public string Move(Map map, int[] startPos, int[] endPos, UIManager uiManager)
         {
             //check desired position if within bounds of map
             if (endPos[0] < 0 || endPos[0] >= map.GetHeight() || endPos[1] < 0 || endPos[1] >= map.GetWidth())

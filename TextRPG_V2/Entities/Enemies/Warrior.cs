@@ -44,7 +44,7 @@ namespace TextRPG_V2
         /// <param name="map"></param>
         /// <param name="startPos"></param>
         /// <returns></returns>
-        public override string ChooseAction(Map map, int[] startPos)
+        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager)
         {
             bool foundDirection = false;
             int[] endPos = new int[2];
@@ -57,19 +57,19 @@ namespace TextRPG_V2
             //checks for entities
             if (map.GetEntity(posSouth) != null)
             {
-                return Move(map, startPos, posSouth);
+                return Move(map, startPos, posSouth, uiManager);
             }
             else if (map.GetEntity(posWest) != null)
             {
-                return Move(map, startPos, posWest);
+                return Move(map, startPos, posWest, uiManager);
             }
             else if (map.GetEntity(posNorth) != null)
             {
-                return Move(map, startPos, posNorth);
+                return Move(map, startPos, posNorth, uiManager);
             }
             else if (map.GetEntity(posEast) != null)
             {
-                return Move(map, startPos, posEast);
+                return Move(map, startPos, posEast, uiManager);
             }
 
             while (!foundDirection)
@@ -131,7 +131,7 @@ namespace TextRPG_V2
                 }
             }
 
-            return Move(map, startPos, endPos);
+            return Move(map, startPos, endPos, uiManager);
         }
 
         private void ChooseDirection()

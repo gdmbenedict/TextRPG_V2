@@ -27,7 +27,7 @@ namespace TextRPG_V2
 
         }
 
-        public override string ChooseAction(Map map, int[] startPos)
+        public override string ChooseAction(Map map, int[] startPos, UIManager uiManager)
         {
             //declaring variables
             int[] endPos = { startPos[0], startPos[1] };
@@ -73,10 +73,10 @@ namespace TextRPG_V2
                     break;
             }
 
-            return Move(map, startPos, endPos);
+            return Move(map, startPos, endPos, uiManager);
         }
 
-        new public string Move(Map map, int[] startPos, int[] endPos)
+        new public string Move(Map map, int[] startPos, int[] endPos, UIManager uIManager)
         {
             //check desired position if within bounds of map
             if (endPos[0] < 0 || endPos[0] >= map.GetHeight() || endPos[1] < 0 || endPos[1] >= map.GetWidth())
@@ -87,6 +87,7 @@ namespace TextRPG_V2
             //checks if there is an Entity to attack
             else if (map.GetEntity(endPos) != null)
             {
+                uIManager.SetEnemyStats(map.GetEntity(endPos));
                 return Attack(map.GetEntity(endPos)); //attacks entity
             }
 
