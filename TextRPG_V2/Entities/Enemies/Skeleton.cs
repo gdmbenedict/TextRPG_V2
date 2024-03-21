@@ -19,7 +19,7 @@ namespace TextRPG_V2
             def = new Stat(16);
             mag = new Stat(2);
             res = new Stat(4);
-            spd = new Stat(6);
+            spd = new Stat(4);
             skl = new Stat(5);
             luc = new Stat(2);
         }
