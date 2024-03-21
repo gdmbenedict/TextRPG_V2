@@ -51,6 +51,8 @@ namespace TextRPG_V2
 
 
         //UIWindows
+        public const int windowPadding = 1;
+
         public const int statWindowHeight = 11;
         public const int statWindowWidth = 20;
 

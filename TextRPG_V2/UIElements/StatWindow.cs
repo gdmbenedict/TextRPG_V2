@@ -10,9 +10,9 @@ namespace TextRPG_V2
     {
         private Entity entity;
 
-        public StatWindow(Player player) : base(GlobalVariables.statWindowWidth, GlobalVariables.statWindowHeight)
+        public StatWindow(Entity entity) : base(GlobalVariables.statWindowWidth, GlobalVariables.statWindowHeight)
         {
-            this.entity = player;
+            this.entity = entity;
         }
 
         public void SetTargetInfo()

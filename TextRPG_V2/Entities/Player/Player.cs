@@ -21,9 +21,9 @@ namespace TextRPG_V2
             base.def = new Stat(5);
             base.mag = new Stat(5);
             base.res = new Stat(5);
-            base.spd = new Stat(5);
-            base.skl = new Stat(5);
-            base.luc = new Stat(5);
+            base.spd = new Stat(10);
+            base.skl = new Stat(10);
+            base.luc = new Stat(10);
 
         }
 

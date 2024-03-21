@@ -12,9 +12,9 @@ namespace TextRPG_V2
         private int displayHeight = GlobalVariables.cameraHeight + 2;
         private int displayWidth = GlobalVariables.cameraWidth + 2;
 
-        public Camera(EntityManager entityManager)
+        public Camera(Entity target)
         {
-            target = entityManager.GetPlayer();
+            this.target = target;
         }
 
         public void DrawGamePlay(Map map, int startPosCol, int startPosRow)
@@ -78,6 +78,16 @@ namespace TextRPG_V2
             }
             Console.Write('┘');
 
+        }
+
+        public int GetWidth()
+        {
+            return displayWidth;
+        }
+
+        public int GetHeight()
+        {
+            return displayHeight;
         }
     }
 }

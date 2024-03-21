@@ -85,5 +85,15 @@ namespace TextRPG_V2
                 }
             }
         }
+
+        public int GetHeight()
+        {
+            return height;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
     }
 }
