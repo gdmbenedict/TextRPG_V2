@@ -18,18 +18,22 @@ namespace TextRPG_V2
             turnBuildup = 0;
         }
 
-        public string UpdateCell(Map map, UIManager uIManager, ItemManager itemManager)
+        public void UpdateCell(Map map, UIManager uIManager, ItemManager itemManager, EntityManager entityManager)
         {
             turnBuildup += entity.spd.GetStat();
 
-            if (turnBuildup >= GlobalVariables.actionThreshold)
+            while (turnBuildup >= GlobalVariables.actionThreshold)
             {
-                return TakeAction(map, uIManager, itemManager);
+                //update UI for player
+                if (entity.GetName() == "Player")
+                {
+                    uIManager.DrawUI(map);
+                }
+
+                uIManager.AddEventToLog(TakeAction(map, uIManager, itemManager));
+                entityManager.CheckDeadEntities(map, uIManager);
             }
-            else
-            {
-                return null;
-            }
+            
         }
 
         private string TakeAction(Map map, UIManager uIManager, ItemManager itemManager)
@@ -112,15 +116,8 @@ namespace TextRPG_V2
         {
             for (int i = 0; i < turnCells.Count; i++)
             {
-                
-                //update UI for player
-                if (turnCells[i].entity.GetName() == "Player")
-                {
-                    uIManager.DrawUI(map);
-                }
 
-                uIManager.AddEventToLog(turnCells[i].UpdateCell(map, uIManager, itemManager));
-                CheckDeadEntities(map, uIManager);
+                turnCells[i].UpdateCell(map, uIManager, itemManager, this);
             }
         }
 
