@@ -32,7 +32,7 @@ namespace TextRPG_V2
                 int[] rightPos = { startPos[0], startPos[1] + 1 };
 
                 //check for impassible tile or entity with same faction
-                if (map.GetTile(rightPos).GetImpassable() || map.GetEntity(rightPos).GetFaction() == Faction.undead)
+                if (map.GetTile(rightPos).GetImpassable() || map.GetEntity(rightPos) != null && map.GetEntity(rightPos).GetFaction() == Faction.undead)
                 {
                     moveRight = false;
                     int[] leftPos = { startPos[0], startPos[1] - 1 };
@@ -52,7 +52,7 @@ namespace TextRPG_V2
                 int[] leftPos = { startPos[0], startPos[1] - 1 };
 
                 //check for impassible tile or entity with same faction
-                if (map.GetTile(leftPos).GetImpassable() || map.GetEntity(leftPos).GetFaction() == Faction.undead)
+                if (map.GetTile(leftPos).GetImpassable() || map.GetEntity(leftPos) != null && map.GetEntity(leftPos).GetFaction() == Faction.undead)
                 {
                     moveRight = true;
                     int[] rightPos = { startPos[0], startPos[1] + 1 };

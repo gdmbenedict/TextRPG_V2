@@ -110,17 +110,17 @@ namespace TextRPG_V2
 
         public void UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager)
         {
-            foreach (TurnCell turnCell in turnCells)
+            for (int i = 0; i < turnCells.Count; i++)
             {
                 CheckDeadEntities(map, uIManager);
 
                 //update UI for player
-                if (turnCell.entity.GetName() == "Player")
+                if (turnCells[i].entity.GetName() == "Player")
                 {
                     uIManager.DrawUI(map);
                 }
 
-                uIManager.AddEventToLog(turnCell.UpdateCell(map, uIManager, itemManager));
+                uIManager.AddEventToLog(turnCells[i].UpdateCell(map, uIManager, itemManager));
             }
         }
 
@@ -139,13 +139,13 @@ namespace TextRPG_V2
 
         public void CheckDeadEntities(Map map, UIManager uIManager)
         {
-            foreach (TurnCell turnCell in turnCells)
+            for(int i=0; i<turnCells.Count; i++)
             {
-                if (turnCell.entity.health.GetHp() <= 0)
+                if (turnCells[i].entity.health.GetHp() <= 0)
                 {
-                    uIManager.AddEventToLog(turnCell.entity.GetName() + " died.");
-                    map.RemoveEntity(turnCell.entity);
-                    turnCells.Remove(turnCell);
+                    uIManager.AddEventToLog(turnCells[i].entity.GetName() + " died.");
+                    map.RemoveEntity(turnCells[i].entity);
+                    turnCells.Remove(turnCells[i]);
                 }
             }
         }

@@ -12,7 +12,7 @@ namespace TextRPG_V2
         //Entity Variables
 
         //Actions / Turns
-        public const int actionThreshold = 100;
+        public const int actionThreshold = 0;
 
         //dodge
         public const int baseDodge = 50;
