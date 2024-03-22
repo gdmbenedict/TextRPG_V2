@@ -16,9 +16,9 @@ namespace TextRPG_V2.Items
             SetSymbol('p');
         }
 
-        new public string Use(Entity target)
+        public override string Use(Entity target)
         {
-            string message = base.Use(target);
+            string message = target.GetName() + " used a " + GetName(); ;
             int oldHp = target.health.GetHp();
 
             target.health.ModHp(healing);

@@ -14,9 +14,9 @@ namespace TextRPG_V2
             SetSymbol('b');
         }
 
-        new public string Use(Entity target)
+        public override string Use(Entity target)
         {
-            string message = base.Use(target);
+            string message = target.GetName() + " used a " + GetName(); ;
             message += " and maxed their speed";
 
             target.spd.SetStat(target.spd.GetMaxStat());

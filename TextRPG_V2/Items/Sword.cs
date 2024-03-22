@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TextRPG_V2.Items
 {
@@ -16,9 +17,9 @@ namespace TextRPG_V2.Items
             SetSymbol('s');
         }
 
-        new public string Use(Entity target)
+        public override string Use(Entity target)
         {
-            string message = base.Use(target);
+            string message = target.GetName() + " used a " + GetName();
             int oldAtk = target.atk.GetStat();
 
             target.atk.ModStat(atkIncrease);
