@@ -42,17 +42,14 @@ namespace TextRPG_V2
         {
             while (!gameLose && !gameWin)
             {
-                entityManager.UpdateEntities(map, uiManager, itemManager);
+                gameWin = entityManager.UpdateEntities(map, uiManager, itemManager);
                 itemManager.UpdateItems();
 
                 if(entityManager.GetPlayer() == null)
                 {
                     gameLose=true;
                 }
-                else if (map.GetTile(map.GetEntityIndex(entityManager.GetPlayer())).GetExit())
-                {
-                    gameWin = true;
-                }
+                
             }
 
             FinishGame();
