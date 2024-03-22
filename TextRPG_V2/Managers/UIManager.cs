@@ -48,6 +48,9 @@ namespace TextRPG_V2
 
         public void DrawUI(Map map)
         {
+            playerStatWindow.SetTargetInfo();
+            enemyStatWindow.SetTargetInfo();
+
             gameplayWindow.DrawGamePlay(map, gameplayPos[0], gameplayPos[1]);
             playerStatWindow.printWindow(playerWinPos);
             enemyStatWindow.printWindow(enemyWinPos);
