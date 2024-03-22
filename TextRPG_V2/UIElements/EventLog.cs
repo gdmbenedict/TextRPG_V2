@@ -21,7 +21,7 @@ namespace TextRPG_V2
             {
                 base.ClearContents();
 
-                for (int i=1; i<eventMessages.Length-1; i++)
+                for (int i=1; i<=eventMessages.Length-1; i++)
                 {
                     eventMessages[i - 1] = eventMessages[i];
                 }
