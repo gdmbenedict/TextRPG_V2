@@ -17,6 +17,9 @@ namespace TextRPG_V2
             base.AddLine(4, "LEFT: A/LEFT ARROW");
             base.AddLine(5, "SWITH STANCE: E");
             base.AddLine(6, "EXIT: ESC");
+            base.AddLine(8, "====================");
+            base.AddLine(10, "Player = @");
+            base.AddLine(11, "Goal = >");
         }
     }
 }

@@ -128,6 +128,7 @@ namespace TextRPG_V2
             string message = "Player switched to ";
 
             SetMagic(!GetMagic());
+            ChangePlayerColor();
 
             if (GetMagic())
             {
@@ -139,6 +140,18 @@ namespace TextRPG_V2
             }
 
             return message;
+        }
+
+        private void ChangePlayerColor()
+        {
+            if (GetMagic())
+            {
+                SetColor(ConsoleColor.DarkCyan);
+            }
+            else
+            {
+                SetColor(ConsoleColor.Yellow);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace TextRPG_V2
         public BootsOfSpeed() : base("Boots of Speed")
         {
             SetSymbol('b');
+            SetColor(ConsoleColor.DarkCyan);
         }
 
         public override string Use(Entity target)

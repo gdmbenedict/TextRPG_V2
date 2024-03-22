@@ -14,6 +14,7 @@ namespace TextRPG_V2.Items
         {
             healing = GlobalVariables.potionHealingValue;
             SetSymbol('p');
+            SetColor(ConsoleColor.Green);
         }
 
         public override string Use(Entity target)

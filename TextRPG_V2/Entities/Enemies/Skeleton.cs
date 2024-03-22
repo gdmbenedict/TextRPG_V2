@@ -9,7 +9,7 @@ namespace TextRPG_V2
         public Skeleton() : base()
         {
             SetName("Skeleton");
-            SetSymbol('s');
+            SetSymbol('S');
             SetColor(ConsoleColor.White);
             SetFaction(Faction.undead);
             SetMagic(false);

@@ -13,7 +13,7 @@ namespace TextRPG_V2
         public Mage() : base()
         {
             SetName("Mage");
-            SetSymbol('m');
+            SetSymbol('M');
             SetColor(ConsoleColor.Cyan);
             SetFaction(Faction.wizards);
             SetMagic(true);

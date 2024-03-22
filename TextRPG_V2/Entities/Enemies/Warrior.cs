@@ -21,7 +21,7 @@ namespace TextRPG_V2
         public Warrior() {
 
             SetName("Warrior");
-            SetSymbol('w');
+            SetSymbol('W');
             SetColor(ConsoleColor.Red);
             SetFaction(Faction.warriors);
             SetMagic(false);
