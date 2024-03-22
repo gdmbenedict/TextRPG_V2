@@ -65,7 +65,6 @@ namespace TextRPG_V2
                 //switch stance
                 case ConsoleKey.E:
                     return SwitchStance();
-                    break;
 
                 //close the game
                 case ConsoleKey.Escape:

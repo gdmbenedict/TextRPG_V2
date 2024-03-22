@@ -67,12 +67,13 @@ namespace TextRPG_V2
 
         public void AddEntity(Entity entity)
         {
-            if (entity.Equals(null))
+            if (entity == null)
             {
                 return;
             }
 
             turnCells.Add(new TurnCell(entity));
+
         }
 
         public void RemoveEntity(Entity entity)
@@ -112,6 +113,13 @@ namespace TextRPG_V2
             foreach (TurnCell turnCell in turnCells)
             {
                 CheckDeadEntities(map, uIManager);
+
+                //update UI for player
+                if (turnCell.entity.GetName() == "Player")
+                {
+                    uIManager.DrawUI(map);
+                }
+
                 uIManager.AddEventToLog(turnCell.UpdateCell(map, uIManager, itemManager));
             }
         }

@@ -19,12 +19,10 @@ namespace TextRPG_V2
 
         public void AddItem(Item item)
         {
-            if (item.Equals(null))
+            if (item != null)
             {
-                return;
+                items.Add(item);
             }
-
-            items.Add(item);
         }
 
         public void RemoveItem(Item item)

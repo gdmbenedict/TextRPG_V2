@@ -16,9 +16,12 @@ namespace TextRPG_V2
 
         public UIWindow(int width, int height)
         {
+            this.width = width;
+            this.height = height;
+
             stringLength = width-2;
 
-            contents = new char[width, height];
+            contents = new char[height, width];
 
             //top boundary
             contents[0, 0] = '┌';
@@ -50,7 +53,7 @@ namespace TextRPG_V2
             {
                 for (int x=0; x<width; x++)
                 {
-                    Console.SetCursorPosition(startpos[0] +y, startpos[1] +x);
+                    Console.SetCursorPosition(startpos[1] + x, startpos[0] +y) ;
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write(contents[y,x]) ;
                 }

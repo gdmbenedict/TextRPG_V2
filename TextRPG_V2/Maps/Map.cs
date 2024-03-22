@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TextRPG_V2;
 using System.IO;
+using System.Diagnostics;
 
 namespace TextRPG_V2
 {
@@ -73,7 +74,7 @@ namespace TextRPG_V2
             }
 
             //find start and end indexes for entities
-            for (int i = endIndex + 1; i < input.Length; i++)
+            for (int i = endIndex + 2; i < input.Length; i++)
             {
                 if (input[i] == "{")
                 {
@@ -95,13 +96,14 @@ namespace TextRPG_V2
             {
                 for (int x = 0; x < width; x++)
                 {
+
                     entities[y, x] = entityManager.InitializeEntity(input[y + startIndex][x]);
                     entityManager.AddEntity(entities[y, x]);
                 }
             }
 
             //find start and end indexes for items
-            for (int i = endIndex + 1; i < input.Length; i++)
+            for (int i = endIndex + 2; i < input.Length; i++)
             {
                 if (input[i] == "{")
                 {

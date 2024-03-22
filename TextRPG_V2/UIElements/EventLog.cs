@@ -17,7 +17,7 @@ namespace TextRPG_V2
 
         public void AddEvent(string eventMessage)
         {
-            if (eventMessage.Length < GlobalVariables.EventLogWindowWidth -3 && eventMessage != null)
+            if (eventMessage != null && eventMessage.Length < GlobalVariables.EventLogWindowWidth -3)
             {
                 base.ClearContents();
 
