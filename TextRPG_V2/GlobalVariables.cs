@@ -11,7 +11,7 @@ namespace TextRPG_V2
     {
         //Entity Variables
 
-        //Actions / Turns
+        //Actions / Turns (TODO: fix AP system to make updates faster)
         public const int actionThreshold = 0;
 
         //dodge

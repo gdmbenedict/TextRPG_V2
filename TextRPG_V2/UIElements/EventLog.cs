@@ -30,7 +30,10 @@ namespace TextRPG_V2
 
                 for (int i=0; i<eventMessages.Length; i++)
                 {
-                    AddLine(i, "> " + eventMessages[i]);
+                    if (eventMessages[i] != null)
+                    {
+                        AddLine(i, "> " + eventMessages[i]);
+                    }
                 }
             }
         }

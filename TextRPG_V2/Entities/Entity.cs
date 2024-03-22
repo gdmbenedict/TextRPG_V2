@@ -166,7 +166,7 @@ namespace TextRPG_V2
             {
                 damage = target.TakeDamage(GetAttackDamage(), magic);
 
-                attackMessage += GetAttackType() + "and hit for " + damage + "damage.";
+                attackMessage += GetAttackType() + "and hit for " + damage + " damage.";
             }
             //attack missed
             else

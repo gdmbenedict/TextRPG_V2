@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TextRPG_V2
 {
     //Struct used to set up an initiative system
-    public struct TurnCell
+    public class TurnCell
     {
         public Entity entity {  get; set; }
         public int turnBuildup {  get; set; }

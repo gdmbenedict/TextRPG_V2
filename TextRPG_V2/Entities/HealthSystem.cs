@@ -82,6 +82,10 @@ namespace TextRPG_V2
             {
                 currentHp = maxHp;
             }
+            else if (currentHp < 0)
+            {
+                currentHp = 0;
+            }
         }
 
         /// <summary>
@@ -95,6 +99,10 @@ namespace TextRPG_V2
             if (currentHp > maxHp)
             {
                 currentHp = maxHp;
+            }
+            else if (currentHp < 0)
+            {
+                currentHp = 0;
             }
         }
 

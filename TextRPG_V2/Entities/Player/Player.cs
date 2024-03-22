@@ -34,7 +34,8 @@ namespace TextRPG_V2
             int[] endPos = { startPos[0], startPos[1] };
 
             //getting input from player
-            ConsoleKeyInfo input = Console.ReadKey();
+            while (Console.KeyAvailable) { Console.ReadKey(true); }
+            ConsoleKeyInfo input = Console.ReadKey(true);
 
             //switch statement to determine which tile to move to
             switch (input.Key)
