@@ -25,22 +25,22 @@ namespace TextRPG_V2
 
             //top boundary
             contents[0, 0] = '┌';
-            for (int i=1; i < width-2; i++)
+            for (int i=1; i < width-1; i++)
             {
                 contents[0, i] = '─';
             }
             contents[0,width-1] = '┐';
 
             //side boundaries
-            for (int j=1; j < height -2; j++)
+            for (int j=1; j < height -1; j++)
             {
                 contents[j, 0] = '│';
-                contents[j, width-1] = '|';
+                contents[j, width-1] = '│';
             }
 
             //bottom boundary
             contents[height -1, 0] = '└';
-            for (int i = 1; i < width - 2; i++)
+            for (int i = 1; i < width - 1; i++)
             {
                 contents[height - 1, i] = '─';
             }
