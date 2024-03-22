@@ -9,6 +9,7 @@ namespace TextRPG_V2
 {
     public enum Faction
     {
+        player,
         undead,
         wizards,
         warriors

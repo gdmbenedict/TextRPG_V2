@@ -16,6 +16,7 @@ namespace TextRPG_V2
             SetName("Player");
             SetSymbol('@');
             SetColor(ConsoleColor.Yellow);
+            SetFaction(Faction.player);
             base.health = new HealthSystem(15);
             base.atk = new Stat(5);
             base.def = new Stat(5);
