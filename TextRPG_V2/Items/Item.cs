@@ -38,13 +38,7 @@ namespace TextRPG_V2
         /// </summary>
         /// <param name="target">The entity that is using the item</param>
         /// <returns>A string for the event log</returns>
-        public string Use(Entity target)
-        {
-            string useMessage;
-            useMessage = target.GetName() + " used a " + name;
-
-            return useMessage;
-        }
+        public abstract string Use(Entity target);
 
         /// <summary>
         /// Accessor method for the name of the item

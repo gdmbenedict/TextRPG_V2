@@ -48,11 +48,11 @@ namespace TextRPG_V2
                     //get index
                     int yPos = y + targetIndex[0];
                     int xPos = x + targetIndex[1];
-                    int[] index = {yPos, xPos};
 
                     //check if in boundaries of map
-                    if ((yPos >= 0 && yPos <= map.GetHeight()) && (xPos >= 0 && xPos <= map.GetWidth()))
+                    if ((yPos >= 0 && yPos < map.GetHeight()) && (xPos >= 0 && xPos < map.GetWidth()))
                     {
+                        int[] index = { yPos, xPos };
                         Console.ForegroundColor = map.GetTopColor(index);
                         Console.Write(map.GetTopSymbol(index));
                     }

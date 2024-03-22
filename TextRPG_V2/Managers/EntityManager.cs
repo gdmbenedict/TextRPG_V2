@@ -112,8 +112,7 @@ namespace TextRPG_V2
         {
             for (int i = 0; i < turnCells.Count; i++)
             {
-                CheckDeadEntities(map, uIManager);
-
+                
                 //update UI for player
                 if (turnCells[i].entity.GetName() == "Player")
                 {
@@ -121,6 +120,7 @@ namespace TextRPG_V2
                 }
 
                 uIManager.AddEventToLog(turnCells[i].UpdateCell(map, uIManager, itemManager));
+                CheckDeadEntities(map, uIManager);
             }
         }
 
