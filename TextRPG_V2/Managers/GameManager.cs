@@ -14,9 +14,13 @@ namespace TextRPG_V2
         EntityManager entityManager;
         ItemManager itemManager;
 
+        private bool gameWin;
+        private bool gameLose;
+
         public GameManager() 
         {
-        
+            gameLose = false;
+            gameWin = false;
         }
 
         public void StartGame()
@@ -36,12 +40,39 @@ namespace TextRPG_V2
 
         public void GameLoop()
         {
-            while (true)
+            while (!gameLose && !gameWin)
             {
                 entityManager.UpdateEntities(map, uiManager, itemManager);
                 itemManager.UpdateItems();
+
+                if(entityManager.GetPlayer() == null)
+                {
+                    gameLose=true;
+                }
+                else if (map.GetTile(map.GetEntityIndex(entityManager.GetPlayer())).GetExit())
+                {
+                    gameWin = true;
+                }
             }
 
+            FinishGame();
+           
+        }
+
+        public void FinishGame()
+        {
+            Console.Clear();
+
+            if (gameWin)
+            {
+                Console.WriteLine("You Win!!!");
+            }
+            else if (gameLose)
+            {
+                Console.WriteLine("You Lose...");
+            }
+
+            Console.ReadKey(true);
         }
     }
 }

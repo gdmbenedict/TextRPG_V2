@@ -277,6 +277,23 @@ namespace TextRPG_V2
                 return background[pos[0], pos[1]].GetSymbol();
             }
         }
+
+        public int[] GetExitIndex()
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int[] index = { y, x };
+                    if (background[index[0], index[1]].GetExit())
+                    {
+                        return index;
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 }
 
