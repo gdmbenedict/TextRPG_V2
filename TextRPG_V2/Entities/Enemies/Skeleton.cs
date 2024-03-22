@@ -16,7 +16,7 @@ namespace TextRPG_V2
 
             health = new HealthSystem(13);
             atk = new Stat(8);
-            def = new Stat(16);
+            def = new Stat(14);
             mag = new Stat(2);
             res = new Stat(4);
             spd = new Stat(4);

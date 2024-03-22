@@ -27,11 +27,11 @@ namespace TextRPG_V2
             SetMagic(false);
 
             health = new HealthSystem(20);
-            atk = new Stat(10);
+            atk = new Stat(18);
             def = new Stat(10);
             mag = new Stat(1);
             res = new Stat(7);
-            spd = new Stat(6);
+            spd = new Stat(8);
             skl = new Stat(4);
             luc = new Stat(10);
 
