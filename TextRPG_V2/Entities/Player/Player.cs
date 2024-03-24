@@ -35,43 +35,54 @@ namespace TextRPG_V2
 
             //getting input from player
             while (Console.KeyAvailable) { Console.ReadKey(true); }
-            ConsoleKeyInfo input = Console.ReadKey(true);
-
-            //switch statement to determine which tile to move to
-            switch (input.Key)
+            
+            bool gotInput = false;
+            while (!gotInput)
             {
-                //move up
-                case ConsoleKey.W:
-                case ConsoleKey.UpArrow:
-                    endPos[0]--;
-                    break;
+                ConsoleKeyInfo input = Console.ReadKey(true);
 
-                //move down
-                case ConsoleKey.S:
-                case ConsoleKey.DownArrow:
-                    endPos[0]++;
-                    break;
+                //switch statement to determine which tile to move to
+                switch (input.Key)
+                {
+                    //move up
+                    case ConsoleKey.W:
+                    case ConsoleKey.UpArrow:
+                        endPos[0]--;
+                        gotInput = true;
+                        break;
 
-                //move leftw
-                case ConsoleKey.A:
-                case ConsoleKey.LeftArrow:
-                    endPos[1]--;
-                    break;
+                    //move down
+                    case ConsoleKey.S:
+                    case ConsoleKey.DownArrow:
+                        endPos[0]++;
+                        gotInput = true;
+                        break;
 
-                //move right
-                case ConsoleKey.D:
-                case ConsoleKey.RightArrow:
-                    endPos[1]++;
-                    break;
+                    //move leftw
+                    case ConsoleKey.A:
+                    case ConsoleKey.LeftArrow:
+                        endPos[1]--;
+                        gotInput = true;
+                        break;
 
-                //switch stance
-                case ConsoleKey.E:
-                    return SwitchStance();
+                    //move right
+                    case ConsoleKey.D:
+                    case ConsoleKey.RightArrow:
+                        endPos[1]++;
+                        gotInput = true;
+                        break;
 
-                //close the game
-                case ConsoleKey.Escape:
-                    System.Environment.Exit(0);
-                    break;
+                    //switch stance
+                    case ConsoleKey.E:
+                        return SwitchStance();
+
+                    //close the game
+                    case ConsoleKey.Escape:
+                        System.Environment.Exit(0);
+                        break;
+
+                    default: break;
+                }
             }
 
             return Move(map, startPos, endPos, uiManager, itemManager);
