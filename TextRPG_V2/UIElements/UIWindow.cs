@@ -72,6 +72,11 @@ namespace TextRPG_V2
                 return;
             }
 
+            for (int i=0; i<stringLength; i++)
+            {
+                contents[linePos, 1 + i] = ' ';
+            }
+
             for (int i=0; i<input.Length; i++)
             {
                 contents[linePos, 1+i] = input[i];
