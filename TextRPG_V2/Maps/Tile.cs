@@ -101,7 +101,7 @@ namespace TextRPG_V2
                     exit = false;
                     hidden = false;
                     magic = false;
-                    damage = 10;
+                    damage = 7;
                     break;
 
                 case 'w':
