@@ -101,7 +101,7 @@ namespace TextRPG_V2
                     exit = false;
                     hidden = false;
                     magic = false;
-                    damage = 5;
+                    damage = 10;
                     break;
 
                 case 'w':
@@ -137,7 +137,7 @@ namespace TextRPG_V2
                     exit = false;
                     hidden = false;
                     magic = false;
-                    damage = 5;
+                    damage = 10;
                     break;
 
                 case 't':
@@ -149,7 +149,7 @@ namespace TextRPG_V2
                     exit = false;
                     hidden = true;
                     magic = false;
-                    damage = 3;
+                    damage = 7;
                     break;
 
                 case 'y':
@@ -161,7 +161,7 @@ namespace TextRPG_V2
                     exit = false;
                     hidden = true;
                     magic = false;
-                    damage = 3;
+                    damage = 7;
                     break;
 
                 case '>':
@@ -189,7 +189,7 @@ namespace TextRPG_V2
             int damage = target.TakeDamage(this.damage, magic);
 
             //generating message
-            string damageMessage = target.GetName() + " finished their turn on a " + name + "tile and took " + damage + " damage";
+            string damageMessage = target.GetName() + " finished their action on a " + name + " tile and took " + damage + " damage";
 
             return damageMessage;
         }

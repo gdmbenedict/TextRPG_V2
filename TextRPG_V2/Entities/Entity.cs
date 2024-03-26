@@ -162,7 +162,7 @@ namespace TextRPG_V2
             }
 
             //check for regular hit
-            if (roll + hit > avoid)
+            else if (roll + hit > avoid)
             {
                 damage = target.TakeDamage(GetAttackDamage(), magic);
 

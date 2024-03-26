@@ -36,6 +36,13 @@ namespace TextRPG_V2
                 }
 
                 uIManager.AddEventToLog(TakeAction(map, uIManager, itemManager));
+
+                //check if entity takes damage from tile
+                if (map.GetTile(map.GetEntityIndex(entity)).GetDangerous())
+                {
+                    uIManager.AddEventToLog(map.GetTile(map.GetEntityIndex(entity)).DealDamage(entity));
+                }
+
                 entityManager.CheckDeadEntities(map, uIManager);
             }
 
