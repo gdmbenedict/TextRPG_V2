@@ -185,11 +185,9 @@ namespace TextRPG_V2
         /// <returns>a damage message that can be printed to the UI</returns>
         public string DealDamage(Entity target)
         {
-            //dealing damage
-            int damage = target.TakeDamage(this.damage, magic);
 
             //generating message
-            string damageMessage = target.GetName() + " finished their action on a " + name + " tile and took " + damage + " damage";
+            string damageMessage = target.GetName() + " finished their action on a " + name + " tile and took " + target.TakeDamage(damage, magic)*2 + " damage"; //for some reason does double damage.
 
             return damageMessage;
         }
