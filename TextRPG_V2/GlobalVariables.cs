@@ -45,7 +45,7 @@ namespace TextRPG_V2
 
 
         //Camera
-        public const int cameraHeight = 23;
+        public const int cameraHeight = 21;
         public const int cameraWidth = 31;
 
 
@@ -60,7 +60,7 @@ namespace TextRPG_V2
         public const int controlsWindowWidth = 22;
 
         public const int EventLogWindowHeight = 12;
-        public const int EventLogWindowWidth = 75;
+        public const int EventLogWindowWidth = 77;
         public const int maxEventLogMessage = 10;
     }
 }
