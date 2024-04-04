@@ -6,83 +6,24 @@ using System.Threading.Tasks;
 
 namespace TextRPG_V2
 {
-    //Struct used to set up an initiative system
-    public class TurnCell
-    {
-        public Entity entity {  get; set; }
-        public int turnBuildup {  get; set; }
-
-        public TurnCell(Entity entity)
-        {
-            this.entity = entity;
-            turnBuildup = 0;
-        }
-
-        public bool UpdateCell(Map map, UIManager uIManager, ItemManager itemManager, EntityManager entityManager)
-        {
-            turnBuildup += entity.spd.GetStat();
-
-            while (turnBuildup >= GlobalVariables.actionThreshold)
-            {
-                //update UI for player
-                if (entity == entityManager.GetPlayer())
-                {
-                    uIManager.DrawUI(map);
-                }
-
-                if (map.GetTile(map.GetEntityIndex(entityManager.GetPlayer())).GetExit())
-                {
-                    return true;
-                }
-
-                uIManager.AddEventToLog(TakeAction(map, uIManager, itemManager));
-
-                //check if entity takes damage from tile
-                if (map.GetTile(map.GetEntityIndex(entity)).GetDangerous())
-                {
-                    uIManager.AddEventToLog(map.GetTile(map.GetEntityIndex(entity)).DealDamage(entity));
-                }
-
-                entityManager.CheckDeadEntities(map, uIManager);
-            }
-
-            return false;
-            
-        }
-
-        private string TakeAction(Map map, UIManager uIManager, ItemManager itemManager)
-        {
-            turnBuildup -= GlobalVariables.actionThreshold;
-            return entity.ChooseAction(map, map.GetEntityIndex(entity), uIManager, itemManager);
-        }
-
-        //method used for potentially sorting list by speed
-        public int CompareTo(TurnCell other)
-        {
-            if (entity.spd.GetStat() > other.entity.spd.GetStat())
-            {
-                return 1;
-            }
-            else if(entity.spd.GetStat() < other.entity.spd.GetStat())
-            {
-                return -1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-    }
 
     public class EntityManager
     {
-        private List<TurnCell> turnCells;
+        //list of entity turns (entities and their ability to take turns) on the map
+        private List<EntityTurn> entityTurns;
         
+        /// <summary>
+        /// Constructor method for an Entity Manager
+        /// </summary>
         public EntityManager()
         {
-            turnCells = new List<TurnCell>();
+            entityTurns = new List<EntityTurn>();
         }
 
+        /// <summary>
+        /// Mutator method that adds an entity to the list of EntityTurns in EntityManager
+        /// </summary>
+        /// <param name="entity">the target entity to add</param>
         public void AddEntity(Entity entity)
         {
             if (entity == null)
@@ -90,21 +31,30 @@ namespace TextRPG_V2
                 return;
             }
 
-            turnCells.Add(new TurnCell(entity));
+            entityTurns.Add(new EntityTurn(entity));
 
         }
 
+        /// <summary>
+        /// Mutator method that removes an entity to the list of EntityTurns in EntityManager
+        /// </summary>
+        /// <param name="entity">the target entity to remove</param>
         public void RemoveEntity(Entity entity)
         {
-            foreach (TurnCell turnCell in turnCells)
+            foreach (EntityTurn entityTurn in entityTurns)
             {
-                if (turnCell.entity == entity)
+                if (entityTurn.entity == entity)
                 {
-                    turnCells.Remove(turnCell);
+                    entityTurns.Remove(entityTurn);
                 }
             }
         }
 
+        /// <summary>
+        /// Method to initialize entities from a character input (for reading entities from a map)
+        /// </summary>
+        /// <param name="input">the character used to represent an entity on the map</param>
+        /// <returns></returns>
         public Entity InitializeEntity(char input)
         {
             switch (input)
@@ -126,11 +76,18 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Method that instructs the EntityManager to update all entities in the EntityTurn list.
+        /// </summary>
+        /// <param name="map">the map the game is on</param>
+        /// <param name="uIManager">the manager for the game UI</param>
+        /// <param name="itemManager">the manager for the items on the map</param>
+        /// <returns></returns>
         public bool UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager)
         {
-            for (int i = 0; i < turnCells.Count; i++)
+            for (int i = 0; i < entityTurns.Count; i++)
             {
-                if (turnCells[i].UpdateCell(map, uIManager, itemManager, this))
+                if (entityTurns[i].Update(map, uIManager, itemManager, this))
                 {
                     return true;
                 }
@@ -139,28 +96,37 @@ namespace TextRPG_V2
             return false;
         }
 
+        /// <summary>
+        /// Accessor method that returns the player from the EntityManager.
+        /// </summary>
+        /// <returns></returns>
         public Entity GetPlayer()
         {
-            foreach(TurnCell turnCell in turnCells)
+            foreach(EntityTurn entityTurn in entityTurns)
             {
-                if (turnCell.entity.GetName() == "Player")
+                if (entityTurn.entity.GetName() == "Player")
                 {
-                    return turnCell.entity;
+                    return entityTurn.entity;
                 }
             }
 
             return null;
         }
 
+        /// <summary>
+        /// Method that checks Entities in the EntityManager to check if they are dead.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="uIManager"></param>
         public void CheckDeadEntities(Map map, UIManager uIManager)
         {
-            for(int i=0; i<turnCells.Count; i++)
+            for(int i=0; i<entityTurns.Count; i++)
             {
-                if (turnCells[i].entity.health.GetHp() <= 0)
+                if (entityTurns[i].entity.health.GetHp() <= 0)
                 {
-                    uIManager.AddEventToLog(turnCells[i].entity.GetName() + " died.");
-                    map.RemoveEntity(turnCells[i].entity);
-                    turnCells.Remove(turnCells[i]);
+                    uIManager.AddEventToLog(entityTurns[i].entity.GetName() + " died.");
+                    map.RemoveEntity(entityTurns[i].entity);
+                    entityTurns.Remove(entityTurns[i]);
                 }
             }
         }
