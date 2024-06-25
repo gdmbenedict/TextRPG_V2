@@ -62,11 +62,14 @@ namespace TextRPG_V2
 
             if (gameWin)
             {
-                Console.WriteLine("You Win!!!");
+                Console.WriteLine("You managed to escpate the dungeon.");
+                Console.WriteLine("Congratulations on beating the game!");
             }
             else if (gameLose)
             {
-                Console.WriteLine("You Lose...");
+                Console.WriteLine("You were defeated by the perils of the");
+                Console.WriteLine("ancient dungeon.");
+                Console.WriteLine("\nRestart the program to try again...");
             }
 
             Console.ReadKey(true);

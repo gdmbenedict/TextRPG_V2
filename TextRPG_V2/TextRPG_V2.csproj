@@ -47,6 +47,7 @@
     <Compile Include="Entities\Enemies\Skeleton.cs" />
     <Compile Include="Entities\Enemies\Warrior.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityTurn.cs" />
     <Compile Include="Entities\HealthSystem.cs" />
     <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="GlobalVariables.cs" />
