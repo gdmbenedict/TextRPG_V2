@@ -29,7 +29,7 @@ namespace TextRPG_V2
         /// <param name="uIManager">the manager for the game UI</param>
         /// <param name="itemManager">the manager for the items on the map</param>
         /// <param name="entityManager">the manager for entities on the map</param>
-        /// <returns></returns>
+        /// <returns>bool returning if game is ending</returns>
         public bool Update(Map map, UIManager uIManager, ItemManager itemManager, EntityManager entityManager)
         {
             //adding speed to build up the Entity's turn
@@ -72,7 +72,7 @@ namespace TextRPG_V2
         /// <param name="map">the map the game is on</param>
         /// <param name="uIManager">the manager for the game UI</param>
         /// <param name="itemManager">the manager for the items on the map</param>
-        /// <returns></returns>
+        /// <returns>Description of the action taken</returns>
         private string TakeAction(Map map, UIManager uIManager, ItemManager itemManager)
         {
             turnBuildup -= GlobalVariables.actionThreshold;

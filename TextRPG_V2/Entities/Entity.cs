@@ -7,6 +7,7 @@ using TextRPG_V2;
 
 namespace TextRPG_V2
 {
+    //Enumerator that contains the factions list of entities
     public enum Faction
     {
         player,
@@ -98,12 +99,25 @@ namespace TextRPG_V2
             rnd = new Random();
         }
 
-        /*
-         * abstract method for choosing action (movement, attack, item use, etc...) based on the child's AI
-         */
+        /// <summary>
+        /// Abstract method called for having an Entity choose its action
+        /// </summary>
+        /// <param name="map">The map on which the entity exists</param>
+        /// <param name="startPos">The position on which the entity starts its turn</param>
+        /// <param name="uiManager">The manager for UI class objects</param>
+        /// <param name="itemManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         public abstract string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager);
 
-        //TODO: tiles and map before this can be finished
+        /// <summary>
+        /// Method to have entity take a move action
+        /// </summary>
+        /// <param name="map">The map on which the entity exists</param>
+        /// <param name="startPos">The position at which the entity starts their turn</param>
+        /// <param name="endPos">The position at which the entity will end their turn</param>
+        /// <param name="uiManager">The manager for UI class objects</param>
+        /// <param name="itemManager">he manager for Item class objects</param>
+        /// <returns>String containing a result of the move action</returns>
         public string Move(Map map, int[] startPos, int[] endPos, UIManager uiManager, ItemManager itemManager)
         {
             //check desired position if within bounds of map
@@ -140,6 +154,11 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Method used to have one entity attack another
+        /// </summary>
+        /// <param name="target">Entity that is the target of the attack</param>
+        /// <returns>A description of the result of the attack</returns>
         public string Attack(Entity target)
         {
             string attackMessage = name + " attacked " + target.name;
@@ -307,19 +326,27 @@ namespace TextRPG_V2
         }
 
         /// <summary>
-        /// Accessor Method that returns the faction of the Entity
+        /// Accessor method that returns the faction of the Entity
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The faction type of entity</returns>
         public Faction GetFaction()
         {
             return this.faction;
         }
 
+        /// <summary>
+        /// Mutator method that sets the magic stat of an Entity
+        /// </summary>
+        /// <param name="magic">The desired value of the magic stat</param>
         public void SetMagic(bool magic)
         {
             this.magic = magic;
         }
 
+        /// <summary>
+        /// Accessor method that returns the magic stat of an Entity
+        /// </summary>
+        /// <returns>The magic stat of the Entity</returns>
         public bool GetMagic()
         {
             return magic;

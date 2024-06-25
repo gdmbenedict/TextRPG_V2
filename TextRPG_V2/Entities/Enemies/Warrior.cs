@@ -8,6 +8,7 @@ namespace TextRPG_V2
 {
     internal class Warrior : Entity
     {
+        //an enumerator of the cardinal directions
         private enum Direction
         {
             north,
@@ -18,6 +19,9 @@ namespace TextRPG_V2
 
         private Direction direction;
 
+        /// <summary>
+        /// Empty constructor for a "Warrior" enemy type.
+        /// </summary>
         public Warrior() {
 
             SetName("Warrior");
@@ -39,11 +43,13 @@ namespace TextRPG_V2
         }
 
         /// <summary>
-        /// Moves in a line until it finds an impassable tile or another entity
+        /// Method for the "Warrior" type enemy to choose its action. Moves in a line until it finds an impassable tile or another entity which it will attack.
         /// </summary>
-        /// <param name="map"></param>
-        /// <param name="startPos"></param>
-        /// <returns></returns>
+        /// <param name="map">The map on which the warrior exists</param>
+        /// <param name="startPos">The position at which the warrior starts its turn</param>
+        /// <param name="itemManager">The manager for UI class objects</param>
+        /// <param name="uiManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             bool foundDirection = false;
@@ -134,6 +140,9 @@ namespace TextRPG_V2
             return Move(map, startPos, endPos, uiManager, itemManager);
         }
 
+        /// <summary>
+        /// Method that randomly choose a direction for the warrior to go in.
+        /// </summary>
         private void ChooseDirection()
         {
             switch (rnd.Next(0, 4))

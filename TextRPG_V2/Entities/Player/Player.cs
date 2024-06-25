@@ -10,7 +10,9 @@ namespace TextRPG_V2
     public class Player : Entity
     {
         
-
+        /// <summary>
+        /// Empty constructor for a "Player" class entity.
+        /// </summary>
         public Player() : base() 
         {
             SetName("Player");
@@ -28,6 +30,14 @@ namespace TextRPG_V2
 
         }
 
+        /// <summary>
+        /// Method to read player input to determine player actions
+        /// </summary>
+        /// <param name="map">The map on which the player exists</param>
+        /// <param name="startPos">The position at which the player starts their turn</param>
+        /// <param name="uiManager">The manager for UI class objects</param>
+        /// <param name="itemManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             //declaring variables
@@ -88,6 +98,15 @@ namespace TextRPG_V2
             return Move(map, startPos, endPos, uiManager, itemManager);
         }
 
+        /// <summary>
+        /// Method for a moving action performed by the player that hides the entity move action
+        /// </summary>
+        /// <param name="map">The map on which the player exists</param>
+        /// <param name="startPos">The position at which the player starts their turn</param>
+        /// <param name="endPos">The position at which the player will end their turn</param>
+        /// <param name="uIManager">The manager for UI class objects</param>
+        /// <param name="itemManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         new public string Move(Map map, int[] startPos, int[] endPos, UIManager uIManager, ItemManager itemManager)
         {
             //check desired position if within bounds of map
@@ -134,6 +153,10 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Method to allow the player to switch stances
+        /// </summary>
+        /// <returns>Description of the player changing stances</returns>
         public string SwitchStance()
         {
             string message = "Player switched to ";
@@ -153,6 +176,9 @@ namespace TextRPG_V2
             return message;
         }
 
+        /// <summary>
+        /// Method that changes the color of the player character
+        /// </summary>
         private void ChangePlayerColor()
         {
             if (GetMagic())

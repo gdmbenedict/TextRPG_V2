@@ -8,8 +8,11 @@ namespace TextRPG_V2.Items
 {
     public class HealingPotion : Item
     {
-        private int healing;
+        private int healing; //amount of healing done by the potion
 
+        /// <summary>
+        /// Empty constructor method for a "Healing Potion" Item.
+        /// </summary>
         public HealingPotion() : base("healing potion")
         {
             healing = GlobalVariables.potionHealingValue;
@@ -17,6 +20,11 @@ namespace TextRPG_V2.Items
             SetColor(ConsoleColor.Green);
         }
 
+        /// <summary>
+        /// Method that uses (consumes) the Healing Potion
+        /// </summary>
+        /// <param name="target">The Entity that is using the item</param>
+        /// <returns>message describing the result of using the item</returns>
         public override string Use(Entity target)
         {
             string message = target.GetName() + " used a " + GetName(); ;

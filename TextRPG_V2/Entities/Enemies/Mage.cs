@@ -10,6 +10,9 @@ namespace TextRPG_V2
     {
         private int range = 5;
 
+        /// <summary>
+        /// Empty constructor for a "Mage" enemy type.
+        /// </summary>
         public Mage() : base()
         {
             SetName("Mage");
@@ -28,6 +31,14 @@ namespace TextRPG_V2
             luc = new Stat(5);
         }
 
+        /// <summary>
+        /// Method for the "Mage" type enemy to choose its action. The behaviour is to randomly wander unless an enemy of the mage is in range.
+        /// </summary>
+        /// <param name="map">The map on which the mage exists</param>
+        /// <param name="startPos">The position on which the mage starts its turn</param>
+        /// <param name="uiManager">The manager for UI class objects</param>
+        /// <param name="itemManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             //checking range for target

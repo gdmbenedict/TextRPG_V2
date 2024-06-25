@@ -6,6 +6,9 @@ namespace TextRPG_V2
     {
         private bool moveRight;
 
+        /// <summary>
+        /// Empty constructor for a "Skeleton" enemy type.
+        /// </summary>
         public Skeleton() : base()
         {
             SetName("Skeleton");
@@ -24,6 +27,14 @@ namespace TextRPG_V2
             luc = new Stat(2);
         }
 
+        /// <summary>
+        /// Method for the "Skeleton" type enemy to choose its action.
+        /// </summary>
+        /// <param name="map">The map on which the skeleton exists</param>
+        /// <param name="startPos">The position on which the skeleton starts its turn</param>
+        /// <param name="uiManager">The manager for UI class objects</param>
+        /// <param name="itemManager">The manager for Item class objects</param>
+        /// <returns>String containing a description of the action</returns>
         public override string ChooseAction(Map map, int[] startPos, UIManager uiManager, ItemManager itemManager)
         {
             //check move right

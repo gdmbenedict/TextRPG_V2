@@ -54,7 +54,7 @@ namespace TextRPG_V2
         /// Method to initialize entities from a character input (for reading entities from a map)
         /// </summary>
         /// <param name="input">the character used to represent an entity on the map</param>
-        /// <returns></returns>
+        /// <returns>The Initialized Entity</returns>
         public Entity InitializeEntity(char input)
         {
             switch (input)
@@ -99,7 +99,7 @@ namespace TextRPG_V2
         /// <summary>
         /// Accessor method that returns the player from the EntityManager.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the "Player" Entity</returns>
         public Entity GetPlayer()
         {
             foreach(EntityTurn entityTurn in entityTurns)
