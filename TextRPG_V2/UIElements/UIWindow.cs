@@ -14,12 +14,18 @@ namespace TextRPG_V2
 
         private char[,] contents;
 
+        /// <summary>
+        /// Constructor method for a UIWindow object
+        /// </summary>
+        /// <param name="width">Width of the UI window</param>
+        /// <param name="height">Height of the UI window</param>
         public UIWindow(int width, int height)
         {
+            //set dimensions of window
             this.width = width;
             this.height = height;
 
-            stringLength = width-2;
+            stringLength = width-2; //set maximum string length
 
             contents = new char[height, width];
 
@@ -47,6 +53,10 @@ namespace TextRPG_V2
             contents[height - 1, width - 1] = '┘';
         }
 
+        /// <summary>
+        /// Method that prints the window to the console (Screen)
+        /// </summary>
+        /// <param name="startpos">The position on the console at which to start printing the window</param>
         public void printWindow(int[] startpos)
         {
             for (int y=0; y<height; y++)
@@ -60,29 +70,41 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Mutator method that adds a string to a line in the window
+        /// </summary>
+        /// <param name="linePos">The line at which to add the string</param>
+        /// <param name="input">The string to add in to the window</param>
         public void AddLine(int linePos, string input)
         {
+            //checks if line exists
             if (linePos <= 0 || linePos >= height-1)
             {
                 return;
             }
 
+            //checks if line is within character limit
             if (input.Length > stringLength)
             {
                 return;
             }
 
+            //clears the line for new message
             for (int i=0; i<stringLength; i++)
             {
                 contents[linePos, 1 + i] = ' ';
             }
 
+            //stores message in window
             for (int i=0; i<input.Length; i++)
             {
                 contents[linePos, 1+i] = input[i];
             }
         }
 
+        /// <summary>
+        /// Mutator method which clears the window of its stored characters
+        /// </summary>
         public void ClearContents()
         {
             for(int j=1; j<height-2; j++)
@@ -94,11 +116,19 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Accessor Method that returns the height of the UI window
+        /// </summary>
+        /// <returns>The height of the UI window</returns>
         public int GetHeight()
         {
             return height;
         }
 
+        /// <summary>
+        /// Accessor Method that returns the width of the UI window
+        /// </summary>
+        /// <returns>The width of the UI window</returns>
         public int GetWidth()
         {
             return width;

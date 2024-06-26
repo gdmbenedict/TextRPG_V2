@@ -8,15 +8,25 @@ namespace TextRPG_V2
 {
     public class Camera
     {
-        Entity target;
-        private int displayHeight = GlobalVariables.cameraHeight + 2;
-        private int displayWidth = GlobalVariables.cameraWidth + 2;
+        Entity target; //the target of the camera (normally the player) that will be followed
+        private int displayHeight = GlobalVariables.cameraHeight + 2; //height of the display for the Camera (adjusted to have border)
+        private int displayWidth = GlobalVariables.cameraWidth + 2; //width of the display for the Camera (adjusted to have border)
 
+        /// <summary>
+        /// Constructor for a Camera type object
+        /// </summary>
+        /// <param name="target">The target that camera will be following</param>
         public Camera(Entity target)
         {
             this.target = target;
         }
 
+        /// <summary>
+        /// Function that draws the game world to the UI
+        /// </summary>
+        /// <param name="map">The map that the game plays in</param>
+        /// <param name="startPosCol">The y position at which to start drawing the gameplay UI</param>
+        /// <param name="startPosRow">The x position at which to start drawing the gameplay UI</param>
         public void DrawGamePlay(Map map, int startPosCol, int startPosRow)
         {
             int[] targetIndex = map.GetEntityIndex(target);
@@ -32,6 +42,7 @@ namespace TextRPG_V2
             }
             Console.Write('┐');
 
+            //drawing contents of map
             j = 0;
             for (int y = -(GlobalVariables.cameraHeight/2); y <= (GlobalVariables.cameraHeight/2); y++)
             {
@@ -80,11 +91,19 @@ namespace TextRPG_V2
 
         }
 
+        /// <summary>
+        /// Accessor method that returns the adjusted width of the camera
+        /// </summary>
+        /// <returns>Adjusted width of the camera</returns>
         public int GetWidth()
         {
             return displayWidth;
         }
 
+        /// <summary>
+        /// Accessor method that returns the adjusted height of the cameraa
+        /// </summary>
+        /// <returns>Adjusted height of the camera</returns>
         public int GetHeight()
         {
             return displayHeight;

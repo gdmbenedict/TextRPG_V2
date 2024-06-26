@@ -8,7 +8,9 @@ namespace TextRPG_V2
 {
     public class ControlsWindow : UIWindow
     {
-
+        /// <summary>
+        /// Constructor method for the controls window object of the UI
+        /// </summary>
         public ControlsWindow() : base(GlobalVariables.controlsWindowWidth, GlobalVariables.controlsWindowHeight)
         {
             base.AddLine(1, "UP: W/UP ARROW");

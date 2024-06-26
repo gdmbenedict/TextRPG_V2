@@ -22,6 +22,10 @@ namespace TextRPG_V2
         private bool magic;
         private int damage;
 
+        /// <summary>
+        /// Constructor method for a Tile type object
+        /// </summary>
+        /// <param name="tileType">Char that determines the type of the Tile that is created</param>
         public Tile(char tileType)
         {
             /*
@@ -39,6 +43,7 @@ namespace TextRPG_V2
              * exit         '>'
              */
 
+            //switch statement to set the correct values for the tile
             switch (tileType)
             {
                 case ' ':

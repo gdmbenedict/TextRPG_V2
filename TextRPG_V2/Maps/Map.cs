@@ -11,13 +11,19 @@ namespace TextRPG_V2
 {
     public class Map
     {
-        private string mapName;
-        private Tile[,] background;
-        private Entity[,] entities;
-        private Item[,] items;
-        private int height;
-        private int width;
+        private string mapName; //name of the map
+        private Tile[,] background; //2d Array of tiles that represent the terrain of the map
+        private Entity[,] entities; //2d Array of entities that represent the entities on the map
+        private Item[,] items; //2d Array of items that represent the items on the map
+        private int height; //the height (y axis) of the map
+        private int width; //the width (x axis) of the map
 
+        /// <summary>
+        /// Constructor method for a Map type object
+        /// </summary>
+        /// <param name="path">The location of the map file</param>
+        /// <param name="entityManager">The manager for Entity type objects</param>
+        /// <param name="itemManager">The manager for Item type objects</param>
         public Map(string path, EntityManager entityManager, ItemManager itemManager)
         {
             //declaring some variables (default values added to handle no value error)
@@ -194,6 +200,10 @@ namespace TextRPG_V2
             entities[pos[0], pos[1]] = null;
         }
 
+        /// <summary>
+        /// Mutator method that removes an Entity from the Map entities given its memory location
+        /// </summary>
+        /// <param name="entity">The instance of the Entity being removed</param>
         public void RemoveEntity(Entity entity)
         {
             for (int y = 0; y < height; y++)
@@ -213,7 +223,7 @@ namespace TextRPG_V2
         /// Accessor method that returns the index for a specific instance of an Entity
         /// </summary>
         /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <returns>Index of the input Entity on the map</returns>
         public int[] GetEntityIndex(Entity entity)
         {
             for (int y =0; y<height; y++)
@@ -231,21 +241,40 @@ namespace TextRPG_V2
             return null;
         }
 
+        /// <summary>
+        /// Accessor method that returns an instance of an Item given its index on the map
+        /// </summary>
+        /// <param name="pos">The index of the item on the map</param>
+        /// <returns>The instance of the Item</returns>
         public Item GetItem(int[] pos)
         {
             return items[pos[0], pos[1]];
         }
 
+        /// <summary>
+        /// Mutator method that that adds a given Item to a given index on the map
+        /// </summary>
+        /// <param name="item">Instance of an Item to be added to the map</param>
+        /// <param name="pos">The index at which to put the item on the map</param>
         public void AddItem(Item item, int[] pos)
         {
             items[pos[0], pos[1]] = item;
         }
 
+        /// <summary>
+        /// Mutator method that removes an Item from a given index on the map
+        /// </summary>
+        /// <param name="pos">The index at which to remove an Item</param>
         public void RemoveItem(int[] pos)
         {
             items[pos[0], pos[1]] = null;
         }
 
+        /// <summary>
+        /// Method that returns the color of the top level layer of the map at a given position
+        /// </summary>
+        /// <param name="pos">The index that is being accessed</param>
+        /// <returns>The color of the top level layer of map at position</returns>
         public ConsoleColor GetTopColor(int[] pos)
         {
             if (entities[pos[0], pos[1]] != null)
@@ -262,6 +291,11 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Method that returns the symbol of the top level layer of the map at a given position
+        /// </summary>
+        /// <param name="pos">The index that is being accessed</param>
+        /// <returns>The symbol of the top level layer of map at position</returns>
         public char GetTopSymbol(int[] pos)
         {
             if (entities[pos[0], pos[1]] != null)
@@ -278,6 +312,10 @@ namespace TextRPG_V2
             }
         }
 
+        /// <summary>
+        /// Method that returns the location of the exit of a map
+        /// </summary>
+        /// <returns>The index at which there is an exit on the map</returns>
         public int[] GetExitIndex()
         {
             for (int y = 0; y < height; y++)

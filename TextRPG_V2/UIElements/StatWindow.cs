@@ -8,13 +8,20 @@ namespace TextRPG_V2
 {
     public class StatWindow : UIWindow
     {
-        private Entity entity;
+        private Entity entity; //entity that the stat window tracks
 
+        /// <summary>
+        /// Constructor method for a StatWindow object
+        /// </summary>
+        /// <param name="entity">The target Entity for the StatWindow to track</param>
         public StatWindow(Entity entity) : base(GlobalVariables.statWindowWidth, GlobalVariables.statWindowHeight)
         {
             this.entity = entity;
         }
 
+        /// <summary>
+        /// Method that updates the displayed info of the target in the StatWindow
+        /// </summary>
         public void SetTargetInfo()
         {
             if (entity != null)
@@ -33,6 +40,10 @@ namespace TextRPG_V2
             } 
         }
 
+        /// <summary>
+        /// Mutator Method that changes the target of the Stat Window
+        /// </summary>
+        /// <param name="entity"></param>
         public void ChangeTarget(Entity entity)
         {
             this.entity = entity;
