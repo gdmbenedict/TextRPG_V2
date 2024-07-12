@@ -43,6 +43,11 @@ namespace TextRPG_V2
 
             //initializing UI
             uiManager = new UIManager(entityManager);
+
+            //title screen
+            TitleScreen();
+
+            //drawing world
             uiManager.DrawUI(map);
 
             //starting game loop
@@ -96,6 +101,43 @@ namespace TextRPG_V2
             }
 
             Console.ReadKey(true);
+        }
+
+        /// <summary>
+        /// Method that sets the title screen
+        /// </summary>
+        private void TitleScreen()
+        {
+            //Title
+            Console.WriteLine("          Welcome To:          \n");
+
+            Console.WriteLine("  ___   _____   ____           ");
+            Console.WriteLine(" / _ \\  \\   /  /  _ \\  |\\    /|");
+            Console.WriteLine("/./ \\.\\  \\./  /../ \\.\\ |.\\  /.|");
+            Console.WriteLine("|.|  |.| |.|  \\..\\  |/ |.|__|.|");
+            Console.WriteLine("|:|  |/  |:|   \\::\\    |::::::|");
+            Console.WriteLine("|:| ___  |:|    \\::\\   |:|  |:|");
+            Console.WriteLine("|x| \\x/  |x|     \\xx\\  |x|  |x|");
+            Console.WriteLine("|x| |x|  |x|      |xx| |x|  |x|");
+            Console.WriteLine("\\X\\_/X|  /X\\  |\\_/XX/  |X|  |X|");
+            Console.WriteLine(" \\XXXX| /XXX\\ |XXXX/   |X|  |X|");
+            Console.WriteLine("___ |X| _____ |X| ____ |X|  |X|");
+            Console.WriteLine("|XX |X| |XXXX |X| |XXX |X/  \\X|");
+            Console.WriteLine("    |/        |/       |/    \\|");
+
+            //Description
+            Console.WriteLine("\n------------------------------------------");
+            Console.WriteLine("You are a Gish warrior; practitioner of");
+            Console.WriteLine("both might and magic. You have been trapped");
+            Console.WriteLine("in an ancient dungeon. Can you use your wits");
+            Console.WriteLine("to escape?");
+
+            //user prompt
+            Console.WriteLine("\nPress any key to start the game...");
+
+            //start sequence
+            Console.ReadKey(true);
+            Console.Clear();
         }
     }
 }
