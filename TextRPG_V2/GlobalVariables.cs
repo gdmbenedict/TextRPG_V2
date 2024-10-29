@@ -12,55 +12,60 @@ namespace TextRPG_V2
         //Entity Variables
 
         //Actions / Turns (TODO: fix AP system to make updates faster)
-        public const int actionThreshold = 10;
+        public static int actionThreshold = 10;
 
         //dodge
-        public const int baseDodge = 50;
-        public const int dodgeSpdWeight = 2;
-        public const int dodgeSklWeight = 2;
-        public const int dodgeLecWeight = 1;
+        public static int baseDodge = 50;
+        public static int dodgeSpdWeight = 2;
+        public static int dodgeSklWeight = 2;
+        public static int dodgeLucWeight = 1;
 
         //hit
-        public const int hitSklWeight = 3;
-        public const int hitSpdWeight = 1;
-        public const int hitLucWeight = 1;
+        public static int hitSklWeight = 3;
+        public static int hitSpdWeight = 1;
+        public static int hitLucWeight = 1;
 
-        //avoid
-        public const float critLucWeight = 0.4f;
-        public const float critSklWeight = 0.1f;
+        //Crit
+        public static float critLucWeight = 0.4f;
+        public static float critSklWeight = 0.1f;
 
 
 
         //Items
-        public const int potionHealingValue = 10;
-        public const int swordAtkIncrease = 5;
-        public const int goldValue = 100;
+        public static int potionHealingValue = 10;
+        public static int swordAtkIncrease = 5;
+        public static int goldValue = 100;
 
 
 
         //Map Variables
-        public const string filename = "Dungeon.txt";
-        public const string directory = @"Maps\MapFiles\";
+        public static string mapFilename = "Dungeon.txt";
+        public static string mapDirectory = @"Maps\MapFiles\";
 
+        //Settings Variables
+        public static string settingsFilename = "";
+        public static string settingsDirectory = "";
 
 
         //Camera
-        public const int cameraHeight = 21;
-        public const int cameraWidth = 31;
+        public static int cameraHeight = 21;
+        public static int cameraWidth = 31;
 
 
 
         //UIWindows
-        public const int windowPadding = 1;
+        public static int windowPadding = 1;
 
-        public const int statWindowHeight = 11;
-        public const int statWindowWidth = 20;
+        public static int statWindowHeight = 11;
+        public static int statWindowWidth = 20;
 
-        public const int controlsWindowHeight = 23;
-        public const int controlsWindowWidth = 22;
+        public static int controlsWindowHeight = 23;
+        public static int controlsWindowWidth = 22;
 
-        public const int EventLogWindowHeight = 12;
-        public const int EventLogWindowWidth = 77;
-        public const int maxEventLogMessage = 10;
+        public static int EventLogWindowHeight = 12;
+        public static int EventLogWindowWidth = 77;
+        public static int maxEventLogMessage = 10;
+
+
     }
 }
