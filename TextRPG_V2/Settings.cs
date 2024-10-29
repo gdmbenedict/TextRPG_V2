@@ -13,7 +13,7 @@ namespace TextRPG_V2
 
         //Dodge
         private int baseDodge;
-        private int dodgeSpedWeight;
+        private int dodgeSpdWeight;
         private int dodgeSklWeight;
         private int dodgeLucWeight;
 
@@ -23,8 +23,8 @@ namespace TextRPG_V2
         private int hitLucWeight;
 
         //Crit
-        private int crtiLucWeight;
-        private int critSklWeight;
+        private float critLucWeight;
+        private float critSklWeight;
 
         //Items
         private int potionHealingValue;
@@ -48,5 +48,26 @@ namespace TextRPG_V2
         public int eventLogWindowWidth;
         public int macEventLogMessage;
         
+        //Empty constructor
+        public Settings(string path)
+        {
+            
+        }
+
+        public void LoadSettings()
+        {
+            //Action Settings
+            GlobalVariables.actionThreshold = actionThreshhold;
+
+            //Dodge settings
+            GlobalVariables.baseDodge = baseDodge;
+            GlobalVariables.dodgeSpdWeight = dodgeSpdWeight;
+            GlobalVariables.dodgeSklWeight = dodgeSklWeight;
+            GlobalVariables.dodgeLucWeight = dodgeLucWeight;
+
+            //Hit Settings
+            GlobalVariables.critLucWeight = critLucWeight;
+            GlobalVariables.critSklWeight = critSklWeight;
+        }
     }
 }

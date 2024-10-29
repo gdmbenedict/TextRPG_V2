@@ -9,6 +9,16 @@ namespace TextRPG_V2
 {
     public static class GlobalVariables
     {
+        //File Paths DO NOT CHANGE!!!
+
+        //Map Variables
+        public static string mapFilename = "Dungeon.txt";
+        public static string mapDirectory = @"Maps\MapFiles\";
+
+        //Settings Variables
+        public static string settingsFilename = "";
+        public static string settingsDirectory = "";
+
         //Entity Variables
 
         //Actions / Turns (TODO: fix AP system to make updates faster)
@@ -29,29 +39,14 @@ namespace TextRPG_V2
         public static float critLucWeight = 0.4f;
         public static float critSklWeight = 0.1f;
 
-
-
         //Items
         public static int potionHealingValue = 10;
         public static int swordAtkIncrease = 5;
         public static int goldValue = 100;
 
-
-
-        //Map Variables
-        public static string mapFilename = "Dungeon.txt";
-        public static string mapDirectory = @"Maps\MapFiles\";
-
-        //Settings Variables
-        public static string settingsFilename = "";
-        public static string settingsDirectory = "";
-
-
         //Camera
         public static int cameraHeight = 21;
         public static int cameraWidth = 31;
-
-
 
         //UIWindows
         public static int windowPadding = 1;

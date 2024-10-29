@@ -32,7 +32,7 @@ namespace TextRPG_V2
         public void StartGame()
         {
             //reading in path for the map file.
-            string path = Path.Combine(Environment.CurrentDirectory, GlobalVariables.directory, GlobalVariables.filename);
+            string path = Path.Combine(Environment.CurrentDirectory, GlobalVariables.mapDirectory, GlobalVariables.mapFilename);
 
             //initializing the entity and item managers
             entityManager = new EntityManager();
