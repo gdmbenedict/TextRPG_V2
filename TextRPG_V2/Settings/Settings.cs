@@ -46,7 +46,7 @@ namespace TextRPG_V2
 
         public int eventLogWindowHeight;
         public int eventLogWindowWidth;
-        public int macEventLogMessage;
+        public int maxEventLogMessage;
         
         //Empty constructor
         public Settings(string path)
@@ -68,6 +68,28 @@ namespace TextRPG_V2
             //Hit Settings
             GlobalVariables.critLucWeight = critLucWeight;
             GlobalVariables.critSklWeight = critSklWeight;
+
+            //Items
+            GlobalVariables.potionHealingValue = potionHealingValue;
+            GlobalVariables.swordAtkIncrease = swordAtkIncrease;
+            GlobalVariables.goldValue = goldValue;
+
+            //Camera
+            GlobalVariables.cameraHeight = cameraHeight;
+            GlobalVariables.cameraWidth = cameraWidth;
+
+            //UI Windows
+            GlobalVariables.windowPadding = windowPadding;
+
+            GlobalVariables.statWindowHeight = statWindowHeight;
+            GlobalVariables.statWindowWidth = statWindowWidth;
+
+            GlobalVariables.controlsWindowHeight = controlsWindowHeight;
+            GlobalVariables.controlsWindowWidth = controlsWindowWidth;
+
+            GlobalVariables.EventLogWindowHeight = eventLogWindowHeight;
+            GlobalVariables.EventLogWindowWidth = eventLogWindowWidth;
+            GlobalVariables.maxEventLogMessage = maxEventLogMessage;
         }
     }
 }

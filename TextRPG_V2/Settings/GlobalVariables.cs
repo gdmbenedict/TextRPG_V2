@@ -48,7 +48,7 @@ namespace TextRPG_V2
         public static int cameraHeight = 21;
         public static int cameraWidth = 31;
 
-        //UIWindows
+        //UI Windows
         public static int windowPadding = 1;
 
         public static int statWindowHeight = 11;
