@@ -16,8 +16,8 @@ namespace TextRPG_V2
         public static string mapDirectory = @"Maps\MapFiles\";
 
         //Settings Variables
-        public static string settingsFilename = "";
-        public static string settingsDirectory = "";
+        public static string settingsFilename = "game_settings.json";
+        public static string settingsDirectory = @"Settings\";
 
         //Entity Variables
 

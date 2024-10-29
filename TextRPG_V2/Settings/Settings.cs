@@ -54,6 +54,11 @@ namespace TextRPG_V2
             
         }
 
+        public void SaveSettings()
+        {
+            // https://www.youtube.com/watch?v=Y14gG9IJ230
+        }
+
         public void LoadSettings()
         {
             //Action Settings
