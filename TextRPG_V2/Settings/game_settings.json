@@ -1,0 +1,53 @@
+{
+	"EntityVariables":
+	{
+		"Actions":
+		{
+			"ActionThreshold" : 10
+		},
+
+		"Dodge":
+		{
+			"BaseDodge": 50,
+			"DodgeSpeedWeight": 2,
+			"DodgeSkillWeight": 2,
+			"DodgeLuckWeight": 1
+		},
+
+		"Hit":
+		{
+			"HitSpeedWeight": 3,
+			"HitSkillWeight": 1,
+			"HitLuckWeight": 1
+		},
+
+		"Crit":
+		{
+			"CritLuckWeight": 0.4,
+			"CritSkillWeight": 0.1
+		}
+	}
+
+	"UISettings":
+	{
+		"Camera":
+		{
+			"CameraHeight": 21,
+			"CameraWeight": 31
+		},
+
+		"UIWindows":
+		{
+			"WindowPadding": 1,
+			"StatWindowHeight": 11,
+			"StatWindowWidth": 20,
+			"ControlsWindowHeight": 23,
+			"ControlsWindowWidth": 22,
+			"EventLogWindowHeight": 12,
+			"EventLogWindowWidth": 77,
+			"MaxEventLogWindowMessage": 10
+		}
+	}
+
+	
+}
