@@ -1,53 +1,25 @@
 {
-	"EntityVariables":
-	{
-		"Actions":
-		{
-			"ActionThreshold" : 10
-		},
-
-		"Dodge":
-		{
-			"BaseDodge": 50,
-			"DodgeSpeedWeight": 2,
-			"DodgeSkillWeight": 2,
-			"DodgeLuckWeight": 1
-		},
-
-		"Hit":
-		{
-			"HitSpeedWeight": 3,
-			"HitSkillWeight": 1,
-			"HitLuckWeight": 1
-		},
-
-		"Crit":
-		{
-			"CritLuckWeight": 0.4,
-			"CritSkillWeight": 0.1
-		}
-	}
-
-	"UISettings":
-	{
-		"Camera":
-		{
-			"CameraHeight": 21,
-			"CameraWeight": 31
-		},
-
-		"UIWindows":
-		{
-			"WindowPadding": 1,
-			"StatWindowHeight": 11,
-			"StatWindowWidth": 20,
-			"ControlsWindowHeight": 23,
-			"ControlsWindowWidth": 22,
-			"EventLogWindowHeight": 12,
-			"EventLogWindowWidth": 77,
-			"MaxEventLogWindowMessage": 10
-		}
-	}
-
-	
+	"actionThreshhold" : 10,
+	"baseDodge": 50,
+	"dodgeSpdWeight": 2,
+	"dodgeSklWeight": 2,
+	"dodgeLucWeight": 1,
+	"hitSpdWeight": 3,
+	"hitSklWeight": 1,
+	"hitLucWeight": 1,
+	"critLucWeight": 0.4,
+	"critSklWeight": 0.1,
+	"potionHealingValue": 10,
+	"swordAtkIncrease": 5,
+	"goldValue": 100,
+	"cameraHeight": 21,
+	"cameraWidth": 31,
+	"windowPadding": 1,
+	"statWindowHeight": 11,
+	"statWindowWidth": 20,
+	"controlsWindowHeight": 23,
+	"controlsWindowWidth": 22,
+	"eventLogWindowHeight": 12,
+	"eventLogWindowWidth": 77,
+	"maxEventLogMessage": 10	
 }

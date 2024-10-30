@@ -3,63 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace TextRPG_V2
 {
     internal class Settings
     {
         //Actions
-        private int actionThreshhold;
+        public int actionThreshhold { get; set; }
 
         //Dodge
-        private int baseDodge;
-        private int dodgeSpdWeight;
-        private int dodgeSklWeight;
-        private int dodgeLucWeight;
+        public int baseDodge { get; set; }
+        public int dodgeSpdWeight { get; set; }
+        public int dodgeSklWeight { get; set; }
+        public int dodgeLucWeight { get; set; }
 
         //Hit
-        private int hitSklWeight;
-        private int hitSpdWeight;
-        private int hitLucWeight;
+        public int hitSklWeight { get; set; }
+        public int hitSpdWeight { get; set; }
+        public int hitLucWeight { get; set; }
 
         //Crit
-        private float critLucWeight;
-        private float critSklWeight;
+        public float critLucWeight { get; set; }
+        public float critSklWeight { get; set; }
 
         //Items
-        private int potionHealingValue;
-        private int swordAtkIncrease;
-        private int goldValue;
+        public int potionHealingValue { get; set; }
+        public int swordAtkIncrease { get; set; }
+        public int goldValue { get; set; }
 
         //Camera
-        public int cameraHeight;
-        public int cameraWidth;
+        public int cameraHeight { get; set; }
+        public int cameraWidth { get; set; }
 
         //UI Windows
-        public int windowPadding;
+        public int windowPadding { get; set; }
 
-        public int statWindowHeight;
-        public int statWindowWidth;
+        public int statWindowHeight { get; set; }
+        public int statWindowWidth { get; set; }
 
-        public int controlsWindowHeight;
-        public int controlsWindowWidth;
+        public int controlsWindowHeight { get; set; }
+        public int controlsWindowWidth { get; set; }
 
-        public int eventLogWindowHeight;
-        public int eventLogWindowWidth;
-        public int maxEventLogMessage;
-        
+        public int eventLogWindowHeight { get; set; }
+        public int eventLogWindowWidth { get; set; }
+        public int maxEventLogMessage { get; set; }
+
         //Empty constructor
-        public Settings(string path)
+        public Settings()
         {
-            
+           
         }
 
         public void SaveSettings()
         {
-            // https://www.youtube.com/watch?v=Y14gG9IJ230
+            
         }
 
-        public void LoadSettings()
+        public void ApplySettings()
         {
             //Action Settings
             GlobalVariables.actionThreshold = actionThreshhold;
