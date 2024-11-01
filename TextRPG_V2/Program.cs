@@ -26,6 +26,7 @@ namespace TextRPG_V2
             Settings settings = JsonSerializer.Deserialize<Settings>(settingsText);
             settings.ApplySettings();
 
+            //starting game
             GameManager gameManager = new GameManager();
             gameManager.StartGame();
         }

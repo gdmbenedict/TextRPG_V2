@@ -38,7 +38,7 @@ namespace TextRPG_V2
             playerWinPos = new int[2] { 0, gameplayWindow.GetWidth() + GlobalVariables.windowPadding };
             enemyWinPos = new int[2] { playerStatWindow.GetHeight() + GlobalVariables.windowPadding, gameplayWindow.GetWidth() + GlobalVariables.windowPadding };
             controlsPos = new int[2] { 0, gameplayWindow.GetWidth() + playerStatWindow.GetWidth() + 2 * GlobalVariables.windowPadding };
-            eventLogPos = new int[2] { gameplayWindow.GetHeight(), 0 };
+            eventLogPos = new int[2] { gameplayWindow.GetHeight() + GlobalVariables.windowPadding, 0 };
 
             //calculate the total width and height of the UI windows
             int totalWidth = gameplayWindow.GetWidth() + playerStatWindow.GetWidth() + controlsWindow.GetWidth() + GlobalVariables.windowPadding * 2;
